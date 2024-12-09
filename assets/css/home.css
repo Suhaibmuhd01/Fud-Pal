@@ -1,0 +1,117 @@
+ /* Dashboard styling */
+ @import url('https://fonts.googleapis.com/css2?fam');
+ *{
+    margin: 0%;
+    left: 0;top: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif, 'cursive';
+}
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.header {
+    background-color: #2E7D32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    /* position: relative; */
+    width: 100%;
+}
+.header .menu-icon {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 24px;
+}
+.header .logo {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+}
+
+.header .welcome-text {
+    margin-top: 50px;
+}
+.header .welcome-text h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.header .welcome-text p {
+    margin: 5px 0 0;
+    font-size: 16px;
+}
+.header .image-container {
+    margin-top: 20px;
+}
+.header .image-container img {
+    width: 100%;
+    max-width: 400px;
+}
+.content {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+.section-title {
+    background-color: #2E7D32;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.card-title {
+    background-color: #2E7D32;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.news-section {
+    background-color: #D84315;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.news-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.news-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+.news-item .time {
+    font-size: 12px;
+    color: #999;
+}
+.news-item .icon {
+    color: #D84315;
+    font-size: 12px;
+}

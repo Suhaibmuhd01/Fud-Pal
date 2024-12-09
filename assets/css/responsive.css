@@ -1,0 +1,49 @@
+@media (max-width: 768px ) {
+        .container{
+            margin: 30px auto;
+            padding: 15px;
+            width: 90%;
+        }
+        input{
+            height: 35px;
+            font-size: 16px;
+            padding: 8px;
+            width: 80%;
+            border-radius: 10px;
+        }
+        button{
+            font-size: 16px;
+            width: 80%;
+        }
+}
+@media (min-width: 769px ) and (max-width: 1024px){
+    .container{
+        padding: 25px;
+        width: 80%;
+        margin: 40px auto;
+    }
+    button{
+        font-size: 18px;
+    }
+    input{
+        font-size: 17px;
+        padding: 10px;
+        height: 40px;
+    }
+}
+@media (min-width: 1025px ) {
+    .container{
+        margin: 60px auto;
+        padding: 30px;
+        width: 60%;
+    }
+    input{
+        height: 45px;
+        font-size: 21px;
+        padding: 12px;
+
+    }
+    button{
+        font-size: 22px;
+    }
+}
