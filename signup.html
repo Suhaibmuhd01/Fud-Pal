@@ -38,16 +38,16 @@
         
         <label for="Name"><i class="fa-solid fa-user"></i> Full Name </label>
         <input type="text" name="name" id="name"/>
-        <label for="Email"><i class="fa-solid fa-envelope"></i> Email Address </label>
+        <label for="Email"> <i class="fa-solid fa-envelope"> </i> Email Address </label>
         <input type="email" id="email" name="email"  />
         <label for="Reg_number"> Registration Number </label>
         <input  type="text" id="Reg_number" name="Reg_number" />
         <label for="Password"><i class="fa-solid fa-lock"></i> Create Password </label>
-        <input type="password" name="Password" autocomplete="off" minlength="8" maxlength="16"
+        <input type="password" name="Password" id="password" autocomplete="off" minlength="8" maxlength="16"
         title="Password must be at least 8 characters long, containing at least lowercase letter, 1 uppercase  letter and a number" 
         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
         <label for="Confirm_psw"><i class="fa-solid fa-lock"></i> Confirm Password </label>
-        <input type="password" name="confirm_psw" autocomplete="off" minlength="8" maxlength="16"
+        <input type="password" name="confirm_psw" id="confirm_password" autocomplete="off" minlength="8" maxlength="16"
         title="Password must be at least 8 characters long, containing at least lowercase letter, 1 uppercase  letter and a number" 
         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
 
@@ -60,5 +60,6 @@
         <a href="index.php"> Login Here! </a>
       </div>
     </div>
+    <script type="text/javaScript" src="/assets/js/passwordGenerator.js"></script>
   </body>
 </html>
