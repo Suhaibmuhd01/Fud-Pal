@@ -6,9 +6,7 @@
     3. Container
     4. Label and input
     5.Button
-    
-    B. Login Styling
-    
+
 */
 @import url('https://fonts.googleapis.com/css2?fam');
 *{
@@ -59,12 +57,17 @@ body {
 
   label {
     display: block;
-    font-size: 16px;
+    font-size: 17px;
     margin-bottom: 5px;
-    margin-left: 40px;
+    margin-left: 5px;
+    font-weight: bold;
+    font-family: 'roboto';
     text-align: left;
   }
-  
+  i{
+    background-color: #a0522d;
+    height: 30px;
+  }
   input {
     width: 100%;
     padding: 10px;
@@ -96,6 +99,6 @@ body {
     color: #a0522d;
     text-decoration: none;
   }
-  /* Login styling */
+
 
  
