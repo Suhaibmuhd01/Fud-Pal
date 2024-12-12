@@ -41,11 +41,7 @@ session_start();
 
     body {
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      display: block;
       margin: 0;
       background-color: #ffffff;
     }
@@ -54,9 +50,6 @@ session_start();
       width: 100%;
       background-color: #00a651;
       padding: 12px;
-      top: -10px;
-      display: flex;
-      position: static;
       z-index: 100;
       align-items: center;
     }
@@ -69,6 +62,7 @@ session_start();
     .container {
       text-align: center;
       width: 80%;
+      margin-top: 120px;
       max-width: 400px;
     }
 
@@ -123,19 +117,27 @@ session_start();
 
     .register-link a {
       color: #a0522d;
+      font-size: 18px;
       text-decoration: none;
+    }
+    a:hover {
+      color: #ceb2a6;
+      font-size: 17px;
     }
   </style>
 </head>
 
 <body>
   <?php
-  include("/database/connection.php");
-  if (isset($_POST['submit'])) {
+  include("./database/connection.php");
+  // database connection
+$conn =mysqli_connect("localhost",'root',"","Fud-pal") or die(mysqli_connect_error());
+
+  if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $result = mysqli_query($con, "SELECT * FROM users WHERE Email='$email' AND password='$password' ") or die('select Error');
+    $result = mysqli_query($con, "SELECT * FROM Student WHERE Reg_no='$regno' AND password='$password' ") or die('select Error');
     $row = mysqli_fetch_assoc($result);
     if (is_array($row) && !empty($row)) {
       $_SESSION['valid'] = $row['Email'];
@@ -144,7 +146,7 @@ session_start();
       $_SESSION['id'] = $row['Id'];
     } else {
       echo "<div class='container2'>
-                            <p>Wrong Name or Password</p>
+                            <p>Wrong Registration Number or Password</p>
                               </div> <br>";
       echo "<a href='index.php'><button class='btn'> Go back</button>";
     }
@@ -161,10 +163,10 @@ session_start();
         width="35" />
     </div>
     <div class="container">
-      <h1>LOGIN!</h1>
-      <form>
-        <label for="email"> Email </label>
-        <input id="email" name="email" type="text" />
+      <h1>LOGIN</h1>
+      <form action="serve.php" method="POST" >
+        <label for="Reg_no"> Reg No </label>
+        <input id="regno" name="Reg_no" type="text" />
         <label for="password"> Password </label>
         <input id="password" name="password" type="password" />
         <button class="login-button" name="login" type="submit">Login</button>

@@ -7,15 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
+    "type": "github",
     "url": "git+https://github.com/suhaibmuhd01/Fud-Pal.git"
   },
   "keywords": [
     "Navigation",
+    "Location",
+    "Campus",
     "registration",
     "guide",
-    "past",
-    "question"
+    "past question"
   ],
   "author": "Team-Alpha",
   "license": "MIT",

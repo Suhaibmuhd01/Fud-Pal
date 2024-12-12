@@ -17,17 +17,16 @@
 }
 /* sign up styling */
 
-body {
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    flex-direction: column; 
+     align-items: center;
+    height: 80vh;
     margin: 0;
     background-color: #ffffff;
-  }
-  .header {
+  } */
+  /* .header {
     width: 100%;
     background-color: #00a651;
     padding: 17px;
@@ -39,7 +38,7 @@ body {
   .header img {
     width: 30px;
     height: 30px;
-  }
+  } */
  
   h1 {
     font-size: 24px;
@@ -49,6 +48,7 @@ body {
     position: relative;
     text-transform: uppercase;
   }
+
   .container {
     text-align: center;
     width: 80%;

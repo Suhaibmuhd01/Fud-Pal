@@ -3,7 +3,7 @@
 *.tmp
 *.bak
 *.swp
-
+*.vs/
 # System files
 .DS_Store
 Thumbs.db
@@ -11,7 +11,6 @@ Thumbs.db
 # Node.js and npm
 node_modules/
 package-lock.json
-yarn.lock
 
 # Composer
 vendor/
@@ -20,3 +19,4 @@ composer.lock
 # IDE files
 .idea/
 *.iml
+.vs/
