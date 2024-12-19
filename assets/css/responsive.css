@@ -4,6 +4,10 @@
             padding: 15px;
             width: 90%;
         }
+        .students{
+            left: 0;
+        }
+        
         input{
             height: 35px;
             font-size: 16px;
@@ -45,5 +49,9 @@
     }
     button{
         font-size: 22px;
+    }
+    .image-container img{
+        height: 300;
+        width: 300;
     }
 }

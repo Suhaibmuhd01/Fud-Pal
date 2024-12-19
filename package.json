@@ -2,7 +2,7 @@
   "name": "team-alpha-",
   "version": "1.0.0",
   "description": "FUD PAL is a web app designed for FUD student to navigate, access resources and stay updated.",
-  "main": "index.html",
+  "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/suhaibmuhd01/Fud-Pal#readme",
   "dependencies": {
     "font-awesome": "^4.7.0",
+    "jquery": "^3.7.1",
     "owl.carousel": "^2.3.4"
   }
 }

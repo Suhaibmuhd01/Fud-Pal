@@ -14,7 +14,7 @@
     background-color: #2E7D32;
     color: white;
     text-align: center;
-    /* position: relative; */
+    position: relative;
     width: 100%;
 }
 .header .menu-icon {
@@ -79,9 +79,12 @@
 .card-title {
     background-color: #2E7D32;
     color: white;
-    padding: 10px;
+    padding: 19px;
     border-radius: 10px;
+    display: grid;
+    width: 101%;
     text-align: center;
+    font-family: 'tahoma',Arial, Helvetica, sans-serif;
     margin-bottom: 10px;
     font-size: 16px;
 }
@@ -93,6 +96,11 @@
     border-radius: 20px;
     margin-bottom: 20px;
     font-size: 18px;
+}
+.time{
+    justify-content:end ;
+    text-align:end ;
+    margin-left: 50%;
 }
 .news-item {
     display: flex;
@@ -116,4 +124,15 @@
 .news-item .icon {
     color: #D84315;
     font-size: 12px;
+}
+
+footer{
+    background-color: #D84315;
+    padding: 15px;
+    color: white;
+}
+footer p{
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
