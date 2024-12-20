@@ -1,3 +1,8 @@
+@media (max-width: 475x ) {
+    /* .logo{
+        
+    } */
+}
 @media (max-width: 768px ) {
         .container{
             margin: 30px auto;
@@ -5,7 +10,7 @@
             width: 90%;
         }
         .students{
-            left: 0;
+            left: 90%;
         }
         
         input{

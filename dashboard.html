@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="refresh" content="500 " />
     <meta
       name="keywords"
-      content="fud-pal, Navigation App, Location, Google map"
+      content="fud-pal, Navigation App, Location, Map, GeoLocation"
     />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta
@@ -15,7 +17,6 @@
     />
     <meta name="author" content="Team Alpha" />
     <title>Fud Pal Home Page</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
     <link
@@ -33,29 +34,78 @@
       type="image/png"
       sizes="50x50"
     />
+    <style>
+      .header .welcome-text {
+        justify-self: left;
+        text-align: left;
+        top: -60px;
+      }
+      .header .welcome-text p h1 {
+        font-size: 18px;
+      }
+      .welcome-text {
+        top: -20px;
+        margin-top: -20px;
+      }
+      h1 p {
+        margin-left: 30px;
+      }
+      i {
+        cursor: pointer;
+      }
+      .image-container {
+        background-color: #ffffff;
+        border-radius: 80%;
+        justify-content: end;
+        margin-left: 56%;
+        width: 17%;
+        overflow-y: visible;
+      }
+      span {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 37px;
+      }
+    </style>
   </head>
 
   <body>
     <!-- header section -->
     <div class="header">
       <!-- <i class="fa-solid fa-bars"></i> -->
-      <i class="fas fa-bars menu-icon" onclick="toggle()"></i>
+      <i
+        class="fas fa-bars menu-icon"
+        onclick="toggle()"
+        style="cursor: pointer"
+      ></i>
       <!-- logo section -->
       <div class="logo">
         <img
-          src="assets/images/Fud_20240913_191519_0000.png"
+          src="assets/images/Fud_20240913_191705_0000.png"
           alt="Logo"
-          height="90"
-          width="80"
+          height="100"
+          width="120"
           class="logo"
-          style="margin-left: 10px"
+          style="margin-left: 80%; padding-top: 10px; bottom: 0px"
         />
       </div>
       <div class="welcome-text">
-        <h1>Welcome To FUDPAL</h1>
+        <h1 style="margin-left: 40px">
+          Welcome To <br />
+          <span>fudpal</span>
+        </h1>
         <br />
-        <h1></h1>
-        <p>Your Go-To For Everything you Need In The FUD Campus!</p>
+        <p
+          style="
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana,
+              sans-serif sans-serif;
+            margin-left: 40px;
+          "
+        >
+          Your Go-To For <br />
+          Everything you Need <br />
+          In The FUD Campus!.
+        </p>
       </div>
       <div class="image-container">
         <img
@@ -63,7 +113,7 @@
           alt="Two students looking at their phones and smiling"
           height="300"
           width="300"
-          style="margin-left: 30%"
+          style="margin-left: 20%; top: -20px"
           class="students"
         />
       </div>
@@ -108,13 +158,13 @@
         <p>
           Stay updated and get essential information for your academic journey.
         </p>
-        <div class="time"><span class="time"> Mins Ago</span></div>
+        <div class="time"><span class="time">10 Mins Ago</span></div>
         <i class="fas fa-arrow-right icon"> </i>
       </div>
     </main>
     <!-- footer -->
     <footer>
-      <p>&copy; Fud-Pal <span id="year"></span> All right reserved.</p>
+      <p>&copy; <span id="year"></span> Fud-Pal, All right reserved.</p>
     </footer>
     <script>
       const currentYear = new Date().getFullYear();
