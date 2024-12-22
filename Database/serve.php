@@ -4,11 +4,11 @@
  $server = "localhost";
  $username = "root";
  $password = "";
- $database = "localhost";
+ $database = "fud-pal";
 
  $conn = mysqli_connect($server,$username,$password,$database) or die("Error occurred");
 
- if(isset($_POST['submit'])){
+ if(isset($_POST['signUp'])){
     $name = $_POST['Name'];
     $email = $_POST['Email'];
     $regno = $_POST['Reg_no'];

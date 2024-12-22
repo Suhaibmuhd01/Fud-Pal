@@ -73,11 +73,7 @@
     <!-- header section -->
     <div class="header">
       <!-- <i class="fa-solid fa-bars"></i> -->
-      <i
-        class="fas fa-bars menu-icon"
-        onclick="toggle()"
-        style="cursor: pointer"
-      ></i>
+      <i class="fas fa-bars menu-icon" style="cursor: pointer"> </i>
       <!-- logo section -->
       <div class="logo">
         <img
@@ -86,7 +82,7 @@
           height="100"
           width="120"
           class="logo"
-          style="margin-left: 80%; padding-top: 10px; bottom: 0px"
+          style="margin-left: 90%; padding-top: 10px; bottom: 0px"
         />
       </div>
       <div class="welcome-text">
@@ -96,11 +92,7 @@
         </h1>
         <br />
         <p
-          style="
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana,
-              sans-serif sans-serif;
-            margin-left: 40px;
-          "
+          style="font-family: Verdana, sans-serif sans-serif; margin-left: 40px"
         >
           Your Go-To For <br />
           Everything you Need <br />
@@ -162,9 +154,12 @@
         <i class="fas fa-arrow-right icon"> </i>
       </div>
     </main>
+    <i class="fas fa-arrow-up icon" id="top-arrow"
+      ><a href="dashboard.html"></a>
+    </i>
     <!-- footer -->
     <footer>
-      <p>&copy; <span id="year"></span> Fud-Pal, All right reserved.</p>
+      &copy; <template id="year"></template> Fud-Pal. All right reserved.
     </footer>
     <script>
       const currentYear = new Date().getFullYear();
