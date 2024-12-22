@@ -31,9 +31,4 @@ We welcome contributions from the FUD community! Feel free to fork the repositor
 **License:**
 
 This project is licensed under MIT License.
-@media(min-width: 475) {}
-@media(min-width: 640){}
-@media(min-width: 768){}
-@media(min-width: 1024){}
-@media(min-width: 1280){}
-@media(min-width: 1536){}
+
