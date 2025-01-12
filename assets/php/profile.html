@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="refresh" content="500 " />
+  <meta name="keywords" content="fud-pal, Navigation App, Location, Map, GeoLocation" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="This is a software developed as a project to get certified by trybe-x community" />
+  <meta name="author" content="Team Alpha" />
+  <title>Profile </title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="assets/js/script.js"></script>
+  <link rel="icon" href="assets/images/Fud_20240913_191519_0000.png" type="image/png" sizes="50x50" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #3e8e41;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    #back {
+      color: #fff;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      background-color: #3e8e41;
+      border: none;
+    }
+
+    .profile-container {
+      text-align: center;
+      justify-content: center;
+      display: flex;
+    }
+
+    #profile {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', ;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 60px;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .edit{
+      padding-top: 4px;
+    }
+    .container {
+      background-color: rgb(202, 159, 67);
+      padding: 10px;
+      top: -20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 295px;
+    }
+
+    .general {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 11px;
+      margin-top: 15px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: auto;
+    }
+
+    #icon {
+      background-color: #fff;
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      margin-top: -25px;
+      display: flex;
+      margin-left: 88px;
+      padding-top: 3px;
+      border-radius: 50px;
+      color: #3e8e41;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    label,
+    span {
+      color: white;
+      padding-top: 4px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    i {
+      font-size: 14px;
+      left: 0;
+      justify-content: left;
+      cursor: pointer;
+    }
+
+
+    .actions {
+      border: 1px solid black;
+      border-radius: 11px;
+      display: grid;
+      gap: 1;
+      margin-top: 25px;
+      width: 250px;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+
+    .actions p {
+      margin-left: 10px
+    }
+
+    #trash {
+      color: red
+    }
+
+    #btn {
+      background-color: rgb(158, 53, 4);
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      width: 40%;
+      color: #fff;
+      cursor: pointer;
+    }
+    .btn:hover{
+      opacity: .6;
+    }
+
+    #home {
+      padding-top: 3%;
+      color: #fff;
+      font-size: 25px;
+      margin-left: 50%;
+      cursor: pointer;
+    }
+
+    div .home i {
+      text-align: center;
+      justify-content: center;
+    }
+    output{
+      padding-top: 20px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <i id="back" class="fas fa-arrow-left icon" onclick="back()"></i> -->
+  <a href='javascript:self.history.back()'> <button class='btn'><i id="back" class="fas fa-arrow-left icon"
+        onclick="back()"></i></button> </a>
+  <div class="profile-container">
+    <div class="profile-pic">
+      <img src="../images/suhaib.jpg" alt="Profile picture" height="300" width="300" style="border-radius: 50%;" />
+      <i id="icon" class="fas fa-plus"> </i>
+      <div class="profile-info"> <span id="profile"> Team Alpha </span> <br><output> <i class="fas fa-pen edit"></i> Edit Profile </output>
+      </div>
+    </div>
+  </div>
+  <div class="general">
+    <div class="container">
+
+      <div class="profile-info">
+        <label>Full Name: <span>Suhaib Muhammad</span> <br />
+
+          <label>Reg. No: <span>FCP/CIT/22/1043</span><br />
+
+            <label>Email: <span>suhaibmuhd04@gmail.com</span>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <p> <i class="fas fa-key"> </i> Change password</p>
+      <p id="trash" onclick="deleteAccount()" > <i class="fas fa-trash"> </i> Delete account</p>
+
+    </div>
+    <button id="btn" class="action-button" onclick="logOut()" >LOG OUT</button>
+  
+    </div>
+  <div class="home"> 
+    <a href="dashboard.html"><i id="home" class="fas fa-home"> </i> </a>
+  </div>
+  <script type="text/javaScript">
+        function back() {
+    const btnAction = document.getElementById("btn");
+    btnAction.addEventListener("click", (e) => {
+        window.history.back();
+    });
+}
+back();
+    </script>
+</body>
+
+</html>
