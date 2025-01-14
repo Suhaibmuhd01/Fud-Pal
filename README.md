@@ -21,8 +21,8 @@
 **Getting Started:**
 
 1. Clone this repository: `git clone https://github.com/suhaibmuhd01/fud-pal.git`
-2. Install dependencies: `npm install`  (Replace with specific installation steps)
-3. Run the application: by running the `index.php` file.
+2. Install dependencies: `npm install` 
+3. Run the application: by running the `index.php` file on your xampp server.
 
 **Contributing:**
 
