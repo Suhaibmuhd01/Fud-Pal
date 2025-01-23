@@ -14,7 +14,9 @@
 
 * HTML
 * CSS
+* Sass
 * JavaScript
+* Jquery
 * PHP
    Also some tools and libraries are used as bootstrap, owl.carousel, jquery and Font awesome.
 
