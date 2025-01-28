@@ -1,6 +1,6 @@
 ## FUD Pal: Your Digital Campus Companion
 
-**FUD Pal** is a user-friendly web application designed to empower students at Federal University Dutse by offering a range of features to simplify and enhance their campus experience.
+**FUD Pal** is a user-friendly web application designed to empower students at Federal University Dutse (FUD) by offering a range of features to simplify and enhance their campus experience.
 
 **Key Features:**
 
