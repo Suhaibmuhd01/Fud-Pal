@@ -29,63 +29,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: auto;
-        }
-
-        .main-content {
-            flex: 1 0 auto;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 32rem;
-            /* Space for sidebar and quick nav */
-            padding-right: 1rem;
-        }
-
-        .sidebar {
-            transition: all 0.3s;
-            width: 16rem;
-            /* 64 in Tailwind */
-            height: auto;
-        }
-
-        .quick-nav {
-            width: 16rem;
-            /* Match sidebar width */
-            top: 0;
-            left: 16rem;
-            /* Offset by sidebar width */
-            max-height: calc(100vh - 4rem);
-            /* Prevent overlap with footer */
-            bottom: 4rem;
-            /* Space above footer */
-            overflow-y: auto;
-            /* Allow content to scroll if needed */
-        }
-
-        .footer-content {
-            flex-shrink: 0;
-        }
-
-        .card-hover {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15), 0 10px 10px -5px rgba(16, 185, 129, 0.10);
-        }
-
-        @media (max-width: 1024px) {
-            .main-content {
-                padding-left: 1rem;
-            }
-        }
-    </style>
+    <!-- Tailwind CSS replaces all custom card/page container styles -->
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900">
@@ -155,7 +99,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                 <div class="bg-green-600 p-4 text-white rounded-t-lg">
                     <h2 class="text-lg font-semibold">Quick Navigation</h2>
                 </div>
-                <ul class="p-4 space-y-1">
+                <ul class="p-4 space-y-1 text-white">
                     <li>
                         <a href="#overview"
                             class="guide-nav-link flex items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition">
@@ -217,7 +161,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content py-8">
+    <main class="mr-4 ml-auto max-w-4xl w-full pr-6 py-8">
         <h1 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Registration Guide</h1>
         <!-- Overview section -->
         <section id="overview" class="mb-10 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 card-hover">
@@ -541,7 +485,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
             </p>
             <h3 class="font-semibold text-lg mt-6 mb-2 text-gray-800 dark:text-white">Fee Structure</h3>
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <table class="min-w-[50rem] lg:min-w-[70rem] divide-y divide-gray-200 dark:divide-gray-700">
                     <thead class="bg-gray-50 dark:bg-gray-700">
                         <tr>
                             <th scope="col"
@@ -916,23 +860,13 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     </div>
 
     <!-- Footer -->
-    <footer class="footer-content bg-white dark:bg-gray-800 shadow-md py-4 relative ml-[16rem] w-[calc(100%-16rem)] flex-shrink-0">
+    <footer
+        class="footer-content bg-white dark:bg-gray-800 shadow-md py-4 relative ml-[16rem] w-[calc(100%-16rem)] flex-shrink-0">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center gap-3">
                 <p class="text-gray-600 dark:text-gray-400 text-sm md:text-center">
-                    © <span id="footer-year"></span> FUD Pal. All rights reserved.
+                    &copy; <span id="footer-year"></span> FUD Pal. All rights reserved.
                 </p>
-                <div class="flex justify-center space-x-4 mt-2 md:mt-0">
-                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </footer>

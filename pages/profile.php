@@ -2,7 +2,7 @@
 
 
 include '../includes/config.php';
-session_start();
+// session_start();
 
 $regnum = $_GET['regnum'] ?? ($_SESSION['regnum'] ?? '');
 if (!$regnum) {

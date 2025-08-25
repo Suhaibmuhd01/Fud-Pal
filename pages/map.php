@@ -575,7 +575,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="x.com/fsuhaibmuhd22/"
+                            <a href="x.com/suhaibmuhd22/"
                                 class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
                                 <i class="fab fa-twitter"></i>
                             </a>

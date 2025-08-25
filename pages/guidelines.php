@@ -977,11 +977,6 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                 <div class="mb-4 md:mb-0">
                     <p class="text-center">&copy; <span id="year"></span> FUD Pal. All rights reserved.</p>
                 </div>
-                <div class="flex space-x-4">
-                    <a href="#" class="hover:text-green-600 dark:hover:text-green-400">Privacy Policy</a>
-                    <a href="#" class="hover:text-green-600 dark:hover:text-green-400">Terms of Service</a>
-                    <a href="#" class="hover:text-green-600 dark:hover:text-green-400">Contact</a>
-                </div>
             </div>
         </footer>
     </div>

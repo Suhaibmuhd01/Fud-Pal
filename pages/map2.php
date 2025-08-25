@@ -15,89 +15,89 @@ session_start();
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#10B981',
-                        secondary: '#D97706',
-                        danger: '#EF4444',
-                    }
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#10B981',
+                    secondary: '#D97706',
+                    danger: '#EF4444',
                 }
             }
         }
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    }
+    // Dark mode detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        if (event.matches) {
             document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
+    });
     </script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
+    body {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
 
+    .sidebar {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
         .sidebar {
-            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
         }
 
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
+        .sidebar.open {
+            transform: translateX(0);
         }
+    }
 
-        .place-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .place-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-        .place-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+    .place-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
 
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
 
-        ::-webkit-scrollbar-thumb {
-            background: #10B981;
-            border-radius: 4px;
-        }
+    ::-webkit-scrollbar-thumb {
+        background: #10B981;
+        border-radius: 4px;
+    }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #047857;
-        }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #047857;
+    }
 
-        .dark ::-webkit-scrollbar-track {
-            background: #374151;
-        }
+    .dark ::-webkit-scrollbar-track {
+        background: #374151;
+    }
 
-        .notification-dot {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            width: 8px;
-            height: 8px;
-            background-color: #EF4444;
-            border-radius: 50%;
-        }
+    .notification-dot {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 8px;
+        height: 8px;
+        background-color: #EF4444;
+        border-radius: 50%;
+    }
     </style>
 </head>
 
@@ -287,7 +287,7 @@ session_start();
                                     Science</h3>
                                 <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Criminology,
                                     Political science,
-                                    Linguistics, Economicsand English.</p>
+                                    Linguistics, Economics and English.</p>
                                 <div class="mt-2 flex justify-between items-center">
                                     <span
                                         class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
@@ -432,72 +432,72 @@ session_start();
     <!-- Overlay for mobile sidebar -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
     <script>
-        $(document).ready(function() {
-            const currentYear = new Date().getFullYear();
-            $('#year').text(currentYear);
+    $(document).ready(function() {
+        const currentYear = new Date().getFullYear();
+        $('#year').text(currentYear);
 
-            // Search/filter locations
-            $('#search-box').on('input', function() {
-                const searchTerm = $(this).val().toLowerCase();
-                let found = false;
-                $('#places-list .place-card').each(function() {
-                    const name = $(this).find('h3').text().toLowerCase();
-                    const desc = $(this).find('p').first().text().toLowerCase();
-                    if (name.includes(searchTerm) || desc.includes(searchTerm)) {
-                        $(this).show();
-                        if (!found && searchTerm.length > 0) {
-                            $('html, body').animate({
-                                scrollTop: $(this).offset().top - 100
-                            }, 300);
-                            $(this).addClass('ring-2 ring-green-500');
-                            setTimeout(() => $(this).removeClass('ring-2 ring-green-500'), 1500);
-                            found = true;
-                        }
-                    } else {
-                        $(this).hide();
+        // Search/filter locations
+        $('#search-box').on('input', function() {
+            const searchTerm = $(this).val().toLowerCase();
+            let found = false;
+            $('#places-list .place-card').each(function() {
+                const name = $(this).find('h3').text().toLowerCase();
+                const desc = $(this).find('p').first().text().toLowerCase();
+                if (name.includes(searchTerm) || desc.includes(searchTerm)) {
+                    $(this).show();
+                    if (!found && searchTerm.length > 0) {
+                        $('html, body').animate({
+                            scrollTop: $(this).offset().top - 100
+                        }, 300);
+                        $(this).addClass('ring-2 ring-green-500');
+                        setTimeout(() => $(this).removeClass('ring-2 ring-green-500'), 1500);
+                        found = true;
                     }
-                });
-            });
-
-            // Location filter buttons
-            /*  $('.location-filter').click(function() {
-                 $('.location-filter').removeClass(
-                     'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
-                 $('.location-filter').addClass(
-                     'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-                 $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-                 $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
-                 const category = $(this).text().trim();
-                 $('#places-list .place-card').each(function() {
-                     const cat = $(this).find('span.text-xs').text().trim();
-                     if (category === "All Locations" || cat === category) {
-                         $(this).show();
-                     } else {
-                         $(this).hide();
-                     }
-                 });
-             }); */
-
-            // Mobile menu toggle
-            $('#menu-btn').click(function() {
-                $(this).toggleClass('open');
-                $('#sidebar').toggleClass('open');
-                $('#sidebar-overlay').toggleClass('hidden');
-                $('body').toggleClass('overflow-hidden');
-            });
-            $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
-                $('#menu-btn').removeClass('open');
-                $('#sidebar').removeClass('open');
-                $('#sidebar-overlay').addClass('hidden');
-                $('body').removeClass('overflow-hidden');
-            });
-            $(window).resize(function() {
-                if (window.innerWidth >= 768) {
-                    $('#sidebar-overlay').addClass('hidden');
-                    $('body').removeClass('overflow-hidden');
+                } else {
+                    $(this).hide();
                 }
             });
         });
+
+        // Location filter buttons
+        /*  $('.location-filter').click(function() {
+             $('.location-filter').removeClass(
+                 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+             $('.location-filter').addClass(
+                 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+             $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+             $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+             const category = $(this).text().trim();
+             $('#places-list .place-card').each(function() {
+                 const cat = $(this).find('span.text-xs').text().trim();
+                 if (category === "All Locations" || cat === category) {
+                     $(this).show();
+                 } else {
+                     $(this).hide();
+                 }
+             });
+         }); */
+
+        // Mobile menu toggle
+        $('#menu-btn').click(function() {
+            $(this).toggleClass('open');
+            $('#sidebar').toggleClass('open');
+            $('#sidebar-overlay').toggleClass('hidden');
+            $('body').toggleClass('overflow-hidden');
+        });
+        $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
+            $('#menu-btn').removeClass('open');
+            $('#sidebar').removeClass('open');
+            $('#sidebar-overlay').addClass('hidden');
+            $('body').removeClass('overflow-hidden');
+        });
+        $(window).resize(function() {
+            if (window.innerWidth >= 768) {
+                $('#sidebar-overlay').addClass('hidden');
+                $('body').removeClass('overflow-hidden');
+            }
+        });
+    });
     </script>
 </body>
 

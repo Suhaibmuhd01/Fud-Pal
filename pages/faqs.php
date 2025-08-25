@@ -4,9 +4,7 @@ $fullname = $_SESSION['fullname'] ?? 'Student';
 $regnum = $_SESSION['regnum'] ?? '';
 $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.jpg';
 
-
 // redirect logics
-session_start();
 if (!isset($_SESSION['user_id'])) {
     $redirect = urlencode($_SERVER['REQUEST_URI']);
     header("Location: login.php?redirect=$redirect");
@@ -85,7 +83,7 @@ if (!isset($_SESSION['user_id'])) {
             <ul class="space-y-2">
                 <li>
                     <a href="dashboard.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10">
+                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
@@ -120,7 +118,7 @@ if (!isset($_SESSION['user_id'])) {
                 </li>
                 <li>
                     <a href="pages/faqs.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
+                        class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10">
                         <i class="fas fa-info-circle"></i>
                         <span>FAQs</span>
                     </a>
@@ -191,7 +189,7 @@ if (!isset($_SESSION['user_id'])) {
             <ul class="space-y-2">
                 <li>
                     <a href="../dashboard.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10">
+                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
@@ -226,7 +224,7 @@ if (!isset($_SESSION['user_id'])) {
                 </li>
                 <li>
                     <a href="faqs.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
+                        class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10">
                         <i class="fas fa-info-circle"></i>
                         <span>FAQs</span>
                     </a>
@@ -284,7 +282,7 @@ if (!isset($_SESSION['user_id'])) {
                                 class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         </div>
 
-                        <nav class="mt-4">
+                        <nav class="mt-4 text-white">
                             <ul class="space-y-1">
                                 <li>
                                     <a href="#general"
@@ -308,7 +306,7 @@ if (!isset($_SESSION['user_id'])) {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#fees"
+                                    <a href="#fees" id="fees"
                                         class="faq-category-link flex items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                                         <i class="fas fa-money-bill-wave mr-2 text-green-600 dark:text-green-400"></i>
                                         <span>Fees & Payments</span>
@@ -924,165 +922,27 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
 
                             <div class="mt-6">
-                                <h4 class="font-medium text-gray-800 dark:text-white">Social Media</h4>
-                                <div class="flex space-x-4 mt-2">
-                                    <a href="#"
-                                        class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
-                                        <i class="fab fa-facebook-f text-xl"></i>
-                                    </a>
-                                    <a href="#"
-                                        class="text-gray-600 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-400">
-                                        <i class="fab fa-twitter text-xl"></i>
-                                    </a>
-                                    <a href="#"
-                                        class="text-gray-600 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-400">
-                                        <i class="fab fa-instagram text-xl"></i>
-                                    </a>
-                                    <a href="#"
-                                        class="text-gray-600 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400">
-                                        <i class="fab fa-youtube text-xl"></i>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-800 shadow-md py-4 mt-8 animate__animated animate__fadeInUp">
-        <div class="max-w-2xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+        <footer class="py-4 mt-8 animate__animated animate__fadeInUp rounded-lg">
+            <div class="flex justify-center items-center">
                 <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm text-center">
                     &copy; <span id="year"></span> FUD Pal. All rights reserved.
                 </p>
-                <div class="flex justify-center space-x-4 mt-2 md:mt-0">
-                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
             </div>
-        </div>
-    </footer>
-    <script>
-        $(document).ready(function() {
-            const currentYear = new Date().getFullYear();
-            $('#year').text(currentYear);
-        });
-    </script>
+        </footer>
+        <script>
+            $(document).ready(function() {
+                const currentYear = new Date().getFullYear();
+                $('#year').text(currentYear);
+            });
+        </script>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            const currentYear = new Date().getFullYear();
-            $('#year').text(currentYear);
-        });
-    </script>
-
-    <!--JavaScriptfor FAQ toggles-- >
-          
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // FAQ toggles
-                const faqToggles = document.querySelectorAll('.faq-toggle');
-
-                faqToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function() {
-                        const content = this.nextElementSibling;
-                        const icon = this.querySelector('i');
-
-                        // Toggle content visibility
-                        content.classList.toggle('hidden');
-
-                        // Rotate icon
-                        if (content.classList.contains('hidden')) {
-                            icon.classList.remove('rotate-180');
-                        } else {
-                            icon.classList.add('rotate-180');
-                        }
-                    });
-                });
-
-                // Category navigation
-                const categoryLinks = document.querySelectorAll('.faq-category-link');
-
-                categoryLinks.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-
-                        const targetId = this.getAttribute('href');
-                        const targetSection = document.querySelector(targetId);
-
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-
-                        // Update active state
-                        categoryLinks.forEach(l => l.classList.remove('bg-green-100',
-                            'dark:bg-green-900', 'text-green-800', 'dark:text-green-200'));
-                        this.classList.add('bg-green-100', 'dark:bg-green-900', 'text-green-800',
-                            'dark:text-green-200');
-                    });
-                });
-
-                // Search functionality
-                const searchInput = document.getElementById('search-faq');
-
-                searchInput.addEventListener('input', function() {
-                    const searchTerm = this.value.toLowerCase();
-
-                    // Get all FAQ items
-                    const faqItems = document.querySelectorAll('.faq-toggle');
-
-                    faqItems.forEach(item => {
-                        const question = item.querySelector('span').textContent.toLowerCase();
-                        const content = item.nextElementSibling.textContent.toLowerCase();
-                        const faqContainer = item.parentElement;
-
-                        // Check if question or answer contains the search term
-                        if (question.includes(searchTerm) || content.includes(searchTerm)) {
-                            faqContainer.style.display = 'block';
-
-                            // Open the FAQ item if there's a search term
-                            if (searchTerm && item.nextElementSibling.classList.contains('hidden')) {
-                                item.nextElementSibling.classList.remove('hidden');
-                                item.querySelector('i').classList.add('rotate-180');
-                            }
-                        } else {
-                            faqContainer.style.display = 'none';
-                        }
-                    });
-
-                    // Check which sections are empty after filtering
-                    const sections = document.querySelectorAll('section[id]');
-
-                    sections.forEach(section => {
-                        const visibleFAQs = section.querySelectorAll('.faq-toggle').length;
-                        const hiddenFAQs = section.querySelectorAll(
-                            '.faq-toggle[style="display: none"]').length;
-
-                        // If all FAQs in this section are hidden, hide the section
-                        if (visibleFAQs > 0 && visibleFAQs === hiddenFAQs) {
-                            section.style.display = 'none';
-                        } else {
-                            section.style.display = 'block';
-                        }
-                    });
-                });
-            });
-    </script>
 </body>
 
 </html>
