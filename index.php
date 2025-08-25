@@ -20,159 +20,159 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#10B981',
-                    secondary: '#D97706',
-                    danger: '#EF4444',
-                    dark: {
-                        primary: '#065F46',
-                        secondary: '#B45309',
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#D97706',
+                        danger: '#EF4444',
+                        dark: {
+                            primary: '#065F46',
+                            secondary: '#B45309',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
-                },
-                animation: {
-                    'bounce-slow': 'bounce 3s infinite',
-                    'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                 }
             }
         }
-    }
-    // Dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        if (event.matches) {
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
-    });
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
     </script>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
-    }
-
-    .menu-slide {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .notification-dot {
-        position: absolute;
-        top: -2px;
-        right: -2px;
-        width: 8px;
-        height: 8px;
-        background-color: #EF4444;
-        border-radius: 50%;
-    }
-
-    .spinner {
-        animation: spinner 0.6s linear infinite;
-    }
-
-    @keyframes spinner {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    .hamburger {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        transition: all 0.25s;
-        position: relative;
-    }
-
-    .hamburger-top,
-    .hamburger-middle,
-    .hamburger-bottom {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 24px;
-        height: 2px;
-        background: white;
-        transform: rotate(0);
-        transition: all 0.5s;
-    }
-
-    .hamburger-middle {
-        transform: translateY(7px);
-    }
-
-    .hamburger-bottom {
-        transform: translateY(14px);
-    }
-
-    .open .hamburger-top {
-        transform: rotate(45deg) translateY(6px) translateX(6px);
-    }
-
-    .open .hamburger-middle {
-        display: none;
-    }
-
-    .open .hamburger-bottom {
-        transform: rotate(-45deg) translateY(6px) translateX(-6px);
-    }
-
-    .card-hover {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    .dark body {
-        background-color: #1F2937;
-        color: #F3F4F6;
-    }
-
-    .dark .bg-white {
-        background-color: #374151;
-    }
-
-    .dark .text-gray-800 {
-        color: #E5E7EB;
-    }
-
-    .dark .border-gray-200 {
-        border-color: #4B5563;
-    }
-
-    /* Responsive fixes */
-    @media (max-width: 768px) {
-        .header-login-btns {
-            flex-direction: column;
-            gap: 0.5rem;
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
 
-        .header-login-btns a {
-            width: 40%;
-            text-align: center;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .hero-img-container {
-            max-width: 90vw;
+        .menu-slide {
+            transition: transform 0.3s ease-in-out;
         }
 
-        .hero-img-bg {
-            width: 100vw !important;
+        .notification-dot {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            background-color: #EF4444;
+            border-radius: 50%;
         }
-    }
+
+        .spinner {
+            animation: spinner 0.6s linear infinite;
+        }
+
+        @keyframes spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: white;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark body {
+            background-color: #1F2937;
+            color: #F3F4F6;
+        }
+
+        .dark .bg-white {
+            background-color: #374151;
+        }
+
+        .dark .text-gray-800 {
+            color: #E5E7EB;
+        }
+
+        .dark .border-gray-200 {
+            border-color: #4B5563;
+        }
+
+        /* Responsive fixes */
+        @media (max-width: 768px) {
+            .header-login-btns {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .header-login-btns a {
+                width: 40%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-img-container {
+                max-width: 90vw;
+            }
+
+            .hero-img-bg {
+                width: 100vw !important;
+            }
+        }
     </style>
 </head>
 
@@ -452,7 +452,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="map.php" class="text-gray-400 hover:text-white transition">Campus Map</a></li>
+                        <li><a href="map2.php" class="text-gray-400 hover:text-white transition">Campus Map</a></li>
                         <li><a href="past_questions.php" class="text-gray-400 hover:text-white transition">Past
                                 Questions</a></li>
                         <li><a href="guidelines.php" class="text-gray-400 hover:text-white transition">Student
@@ -490,41 +490,41 @@
         </div>
     </footer>
     <script>
-    $(document).ready(function() {
-        // get current year
-        const currentYear = new Date().getFullYear();
-        $('#year').text(currentYear);
-        // Initialize AOS animation library
-        AOS.init();
-        // Initialize Owl Carousel
-        $('.daily-dose-carousel').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: true,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1
+        $(document).ready(function() {
+            // get current year
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
+            // Initialize AOS animation library
+            AOS.init();
+            // Initialize Owl Carousel
+            $('.daily-dose-carousel').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    640: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    1024: {
+                        items: 3
+                    }
                 },
-                640: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 3
-                }
-            },
-            navText: [
-                '<i class="fas fa-chevron-left"></i>',
-                '<i class="fas fa-chevron-right"></i>'
-            ]
+                navText: [
+                    '<i class="fas fa-chevron-left"></i>',
+                    '<i class="fas fa-chevron-right"></i>'
+                ]
+            });
         });
-    });
     </script>
 </body>
 

@@ -49,147 +49,147 @@ header("Pragma: no-cache");
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#10B981',
-                    secondary: '#D97706',
-                    danger: '#EF4444',
-                    dark: {
-                        primary: '#065F46',
-                        secondary: '#B45309',
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#D97706',
+                        danger: '#EF4444',
+                        dark: {
+                            primary: '#065F46',
+                            secondary: '#B45309',
+                        }
                     }
                 }
             }
         }
-    }
 
-    // Dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        if (event.matches) {
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
-    });
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
     </script>
 
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
-    }
-
-    /* Sidebar styles */
-    .sidebar {
-        transition: all 0.3s ease-in-out;
-    }
-
-    .sidebar.collapsed {
-        transform: translateX(-100%);
-    }
-
-    @media (min-width: 768px) {
-        .main-content {
-            transition: margin-left 0.3s ease-in-out;
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
 
-        .main-content.expanded {
-            margin-left: 0;
+        /* Sidebar styles */
+        .sidebar {
+            transition: all 0.3s ease-in-out;
         }
-    }
 
-    /* Mobile menu styles */
-    .mobile-menu {
-        transition: transform 0.3s ease-in-out;
-    }
+        .sidebar.collapsed {
+            transform: translateX(-100%);
+        }
 
-    .notification-dot {
-        position: absolute;
-        top: -2px;
-        right: -2px;
-        width: 8px;
-        height: 8px;
-        background-color: #EF4444;
-        border-radius: 50%;
-    }
+        @media (min-width: 768px) {
+            .main-content {
+                transition: margin-left 0.3s ease-in-out;
+            }
 
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
+            .main-content.expanded {
+                margin-left: 0;
+            }
+        }
 
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
+        /* Mobile menu styles */
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background: #10B981;
-        border-radius: 3px;
-    }
+        .notification-dot {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            background-color: #EF4444;
+            border-radius: 50%;
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #047857;
-    }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
 
-    /* Card hover effect */
-    .card-hover {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-    .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
+        ::-webkit-scrollbar-thumb {
+            background: #10B981;
+            border-radius: 3px;
+        }
 
-    /* Hamburger menu */
-    .hamburger {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        transition: all 0.25s;
-        position: relative;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857;
+        }
 
-    .hamburger-top,
-    .hamburger-middle,
-    .hamburger-bottom {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 24px;
-        height: 2px;
-        background: white;
-        transform: rotate(0);
-        transition: all 0.5s;
-    }
+        /* Card hover effect */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .hamburger-middle {
-        transform: translateY(7px);
-    }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
 
-    .hamburger-bottom {
-        transform: translateY(14px);
-    }
+        /* Hamburger menu */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
 
-    .open .hamburger-top {
-        transform: rotate(45deg) translateY(6px) translateX(6px);
-    }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: white;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
 
-    .open .hamburger-middle {
-        display: none;
-    }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
 
-    .open .hamburger-bottom {
-        transform: rotate(-45deg) translateY(6px) translateX(-6px);
-    }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
     </style>
 </head>
 
@@ -236,7 +236,7 @@ header("Pragma: no-cache");
                     </a>
                 </li>
                 <li>
-                    <a href="pages/map.php"
+                    <a href="pages/map2.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -341,7 +341,7 @@ header("Pragma: no-cache");
                     </a>
                 </li>
                 <li>
-                    <a href="pages/map.php"
+                    <a href="pages/map2.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -510,7 +510,7 @@ header("Pragma: no-cache");
             <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Quick Access</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 <!-- Campus Map Card -->
-                <a href="pages/map.php"
+                <a href="pages/map2.php"
                     class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-start space-x-4 card-hover">
                     <div class="rounded-lg bg-green-100 dark:bg-green-900 p-3">
                         <i class="fas fa-map-marker-alt text-xl text-green-600 dark:text-green-400"></i>

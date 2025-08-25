@@ -24,139 +24,139 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#10B981',
-                    secondary: '#D97706',
-                    danger: '#EF4444',
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#D97706',
+                        danger: '#EF4444',
+                    }
                 }
             }
         }
-    }
 
-    // Dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        if (event.matches) {
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
-    });
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
     </script>
 
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
-    }
-
-    .sidebar {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .notification-dot {
-        position: absolute;
-        top: -2px;
-        right: -2px;
-        width: 8px;
-        height: 8px;
-        background-color: #EF4444;
-        border-radius: 50%;
-    }
-
-    /* Custom animation for loading spinner */
-    @keyframes spinner {
-        to {
-            transform: rotate(360deg);
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
-    }
 
-    .spinner {
-        animation: spinner 0.6s linear infinite;
-    }
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
 
-    /* Step indicator styles */
-    .step-connector {
-        position: absolute;
-        top: 14px;
-        left: 14px;
-        bottom: -14px;
-        width: 2px;
-        background-color: #E5E7EB;
-        z-index: 0;
-    }
+        .notification-dot {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            background-color: #EF4444;
+            border-radius: 50%;
+        }
 
-    .dark .step-connector {
-        background-color: #4B5563;
-    }
+        /* Custom animation for loading spinner */
+        @keyframes spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-    /* Hamburger menu */
-    .hamburger {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        transition: all 0.25s;
-        position: relative;
-    }
+        .spinner {
+            animation: spinner 0.6s linear infinite;
+        }
 
-    .hamburger-top,
-    .hamburger-middle,
-    .hamburger-bottom {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 24px;
-        height: 2px;
-        background: white;
-        transform: rotate(0);
-        transition: all 0.5s;
-    }
+        /* Step indicator styles */
+        .step-connector {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            bottom: -14px;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
 
-    .hamburger-middle {
-        transform: translateY(7px);
-    }
+        .dark .step-connector {
+            background-color: #4B5563;
+        }
 
-    .hamburger-bottom {
-        transform: translateY(14px);
-    }
+        /* Hamburger menu */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
 
-    .open .hamburger-top {
-        transform: rotate(45deg) translateY(6px) translateX(6px);
-    }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: white;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
 
-    .open .hamburger-middle {
-        display: none;
-    }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
 
-    .open .hamburger-bottom {
-        transform: rotate(-45deg) translateY(6px) translateX(-6px);
-    }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
 
-    /* Dark mode styles */
-    .dark body {
-        background-color: #1F2937;
-        color: #F3F4F6;
-    }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
 
-    .dark .bg-white {
-        background-color: #374151;
-    }
+        .open .hamburger-middle {
+            display: none;
+        }
 
-    .dark .text-gray-800 {
-        color: #E5E7EB;
-    }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
 
-    .dark .border-gray-200 {
-        border-color: #4B5563;
-    }
+        /* Dark mode styles */
+        .dark body {
+            background-color: #1F2937;
+            color: #F3F4F6;
+        }
+
+        .dark .bg-white {
+            background-color: #374151;
+        }
+
+        .dark .text-gray-800 {
+            color: #E5E7EB;
+        }
+
+        .dark .border-gray-200 {
+            border-color: #4B5563;
+        }
     </style>
 </head>
 
@@ -199,7 +199,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                     </a>
                 </li>
                 <li>
-                    <a href="map.php" class="flex items-center px-4 py-3 hover:bg-green-700 transition-colors">
+                    <a href="map2.php" class="flex items-center px-4 py-3 hover:bg-green-700 transition-colors">
                         <i class="fas fa-map-marker-alt w-6"></i>
                         <span>Map</span>
                     </a>
@@ -283,7 +283,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                     </a>
                 </li>
                 <li>
-                    <a href="map.php"
+                    <a href="map2.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -987,73 +987,73 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
     </div>
 
     <script>
-    $(document).ready(function() {
-        const currentYear = new Date().getFullYear();
-        $('#year').text(currentYear);
-    })
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
+        })
     </script>
     <script>
-    $(document).ready(function() {
-        // Initialize AOS animation library
-        AOS.init();
+        $(document).ready(function() {
+            // Initialize AOS animation library
+            AOS.init();
 
-        // Mobile menu toggle
-        $('#mobile-menu-button').click(function() {
-            $(this).toggleClass('open');
-            $('#mobile-sidebar').toggleClass('-translate-x-full');
-            $('#mobile-menu-overlay').toggleClass('hidden');
-            $('body').toggleClass('overflow-hidden');
-        });
+            // Mobile menu toggle
+            $('#mobile-menu-button').click(function() {
+                $(this).toggleClass('open');
+                $('#mobile-sidebar').toggleClass('-translate-x-full');
+                $('#mobile-menu-overlay').toggleClass('hidden');
+                $('body').toggleClass('overflow-hidden');
+            });
 
-        $('#close-mobile-menu').click(function() {
-            $('#mobile-menu-button').removeClass('open');
-            $('#mobile-sidebar').addClass('-translate-x-full');
-            $('#mobile-menu-overlay').addClass('hidden');
-            $('body').removeClass('overflow-hidden');
-        });
+            $('#close-mobile-menu').click(function() {
+                $('#mobile-menu-button').removeClass('open');
+                $('#mobile-sidebar').addClass('-translate-x-full');
+                $('#mobile-menu-overlay').addClass('hidden');
+                $('body').removeClass('overflow-hidden');
+            });
 
-        $('#mobile-menu-overlay').click(function() {
-            $('#mobile-menu-button').removeClass('open');
-            $('#mobile-sidebar').addClass('-translate-x-full');
-            $('#mobile-menu-overlay').addClass('hidden');
-            $('body').removeClass('overflow-hidden');
-        });
+            $('#mobile-menu-overlay').click(function() {
+                $('#mobile-menu-button').removeClass('open');
+                $('#mobile-sidebar').addClass('-translate-x-full');
+                $('#mobile-menu-overlay').addClass('hidden');
+                $('body').removeClass('overflow-hidden');
+            });
 
-        // FAQ accordion
-        $('.faq-btn').click(function() {
-            const target = $(this).data('target');
-            $(`#${target}`).slideToggle();
-            $(this).find('i').toggleClass('rotate-180');
-        });
+            // FAQ accordion
+            $('.faq-btn').click(function() {
+                const target = $(this).data('target');
+                $(`#${target}`).slideToggle();
+                $(this).find('i').toggleClass('rotate-180');
+            });
 
-        // Faculty selection for department guidelines
-        $('#faculty-select').change(function() {
-            const faculty = $(this).val();
+            // Faculty selection for department guidelines
+            $('#faculty-select').change(function() {
+                const faculty = $(this).val();
 
-            if (!faculty) {
-                $('#department-guidelines').html(`
+                if (!faculty) {
+                    $('#department-guidelines').html(`
                         <div class="text-center py-8 text-gray-600 dark:text-gray-400">
                             <i class="fas fa-hand-pointer text-4xl mb-4"></i>
                             <p>Select your faculty to view department-specific guidelines</p>
                         </div>
                     `);
-                return;
-            }
+                    return;
+                }
 
-            // Show loading state
-            $('#department-guidelines').html(`
+                // Show loading state
+                $('#department-guidelines').html(`
                     <div class="text-center py-8 text-gray-600 dark:text-gray-400">
                         <i class="fas fa-spinner spinner text-4xl mb-4"></i>
                         <p>Loading department guidelines...</p>
                     </div>
                 `);
 
-            // Simulate loading department data
-            setTimeout(function() {
-                let departmentHTML = '';
+                // Simulate loading department data
+                setTimeout(function() {
+                    let departmentHTML = '';
 
-                if (faculty === 'computing') {
-                    departmentHTML = `
+                    if (faculty === 'computing') {
+                        departmentHTML = `
                             <div class="bg-green-50 dark:bg-green-900 border-l-4 border-green-500 text-green-700 dark:text-green-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Computing Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Computing.</p>
@@ -1109,8 +1109,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                } else if (faculty === 'sciences') {
-                    departmentHTML = `
+                    } else if (faculty === 'sciences') {
+                        departmentHTML = `
                             <div class="bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 text-blue-700 dark:text-blue-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Sciences Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Sciences.</p>
@@ -1154,8 +1154,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                } else if (faculty === 'agriculture') {
-                    departmentHTML = `
+                    } else if (faculty === 'agriculture') {
+                        departmentHTML = `
                             <div class="bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-500 text-yellow-700 dark:text-yellow-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Agriculture Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Agriculture.</p>
@@ -1187,8 +1187,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                } else if (faculty === 'management') {
-                    departmentHTML = `
+                    } else if (faculty === 'management') {
+                        departmentHTML = `
                             <div class="bg-purple-50 dark:bg-purple-900 border-l-4 border-purple-500 text-purple-700 dark:text-purple-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Management Sciences Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Management Sciences.</p>
@@ -1232,8 +1232,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                } else if (faculty === 'arts') {
-                    departmentHTML = `
+                    } else if (faculty === 'arts') {
+                        departmentHTML = `
                             <div class="bg-red-50 dark:bg-red-900 border-l-4 border-red-500 text-red-700 dark:text-red-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Arts & Social Sciences Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Arts & Social Sciences.</p>
@@ -1277,45 +1277,45 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                } else {
-                    departmentHTML = `
+                    } else {
+                        departmentHTML = `
                             <div class="text-center py-8 text-gray-600 dark:text-gray-400">
                                 <i class="fas fa-exclamation-circle text-4xl mb-4"></i>
                                 <p>No specific guidelines available for the selected faculty. Please contact your department office for registration guidance.</p>
                             </div>
                         `;
+                    }
+
+                    $('#department-guidelines').html(departmentHTML);
+                }, 1000);
+            });
+
+            // Submit question form
+            $('#submit-question').click(function() {
+                const name = $('#question-name').val().trim();
+                const email = $('#question-email').val().trim();
+                const question = $('#question-text').val().trim();
+
+                // Simple validation
+                if (!name || !email || !question) {
+                    alert('Please fill in all fields');
+                    return;
                 }
 
-                $('#department-guidelines').html(departmentHTML);
-            }, 1000);
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+
+                // Show success message (would be replaced with AJAX call in production)
+                alert('Your question has been submitted successfully! We will get back to you soon.');
+
+                // Reset form
+                $('#question-form')[0].reset();
+            });
         });
-
-        // Submit question form
-        $('#submit-question').click(function() {
-            const name = $('#question-name').val().trim();
-            const email = $('#question-email').val().trim();
-            const question = $('#question-text').val().trim();
-
-            // Simple validation
-            if (!name || !email || !question) {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-
-            // Show success message (would be replaced with AJAX call in production)
-            alert('Your question has been submitted successfully! We will get back to you soon.');
-
-            // Reset form
-            $('#question-form')[0].reset();
-        });
-    });
     </script>
 </body>
 

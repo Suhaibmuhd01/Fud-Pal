@@ -30,61 +30,61 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: auto;
-    }
-
-    .main-content {
-        flex: 1 0 auto;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 32rem;
-        /* Space for sidebar and quick nav */
-        padding-right: 1rem;
-    }
-
-    .sidebar {
-        transition: all 0.3s;
-        width: 16rem;
-        /* 64 in Tailwind */
-        height: auto;
-    }
-
-    .quick-nav {
-        width: 16rem;
-        /* Match sidebar width */
-        top: 0;
-        left: 16rem;
-        /* Offset by sidebar width */
-        max-height: calc(100vh - 4rem);
-        /* Prevent overlap with footer */
-        bottom: 4rem;
-        /* Space above footer */
-        overflow-y: auto;
-        /* Allow content to scroll if needed */
-    }
-
-    .footer-content {
-        flex-shrink: 0;
-    }
-
-    .card-hover {
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card-hover:hover {
-        transform: translateY(-5px) scale(1.01);
-        box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15), 0 10px 10px -5px rgba(16, 185, 129, 0.10);
-    }
-
-    @media (max-width: 1024px) {
-        .main-content {
-            padding-left: 1rem;
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: auto;
         }
-    }
+
+        .main-content {
+            flex: 1 0 auto;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 32rem;
+            /* Space for sidebar and quick nav */
+            padding-right: 1rem;
+        }
+
+        .sidebar {
+            transition: all 0.3s;
+            width: 16rem;
+            /* 64 in Tailwind */
+            height: auto;
+        }
+
+        .quick-nav {
+            width: 16rem;
+            /* Match sidebar width */
+            top: 0;
+            left: 16rem;
+            /* Offset by sidebar width */
+            max-height: calc(100vh - 4rem);
+            /* Prevent overlap with footer */
+            bottom: 4rem;
+            /* Space above footer */
+            overflow-y: auto;
+            /* Allow content to scroll if needed */
+        }
+
+        .footer-content {
+            flex-shrink: 0;
+        }
+
+        .card-hover {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15), 0 10px 10px -5px rgba(16, 185, 129, 0.10);
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding-left: 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -116,7 +116,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                 <li><a href="../dashboard.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors"><i
                             class="fas fa-home"></i><span>Dashboard</span></a></li>
-                <li><a href="map.php"
+                <li><a href="map2.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors"><i
                             class="fas fa-map-marker-alt"></i><span>Campus Map</span></a></li>
                 <li><a href="past_questions.php"
@@ -915,108 +915,108 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     </nav>
     </div>
 
-   <!-- Footer -->
-<footer class="footer-content bg-white dark:bg-gray-800 shadow-md py-4 relative ml-[16rem] w-[calc(100%-16rem)] flex-shrink-0">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-center">
-                © <span id="footer-year"></span> FUD Pal. All rights reserved.
-            </p>
-            <div class="flex justify-center space-x-4 mt-2 md:mt-0">
-                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
-                    <i class="fab fa-instagram"></i>
-                </a>
+    <!-- Footer -->
+    <footer class="footer-content bg-white dark:bg-gray-800 shadow-md py-4 relative ml-[16rem] w-[calc(100%-16rem)] flex-shrink-0">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+                <p class="text-gray-600 dark:text-gray-400 text-sm md:text-center">
+                    © <span id="footer-year"></span> FUD Pal. All rights reserved.
+                </p>
+                <div class="flex justify-center space-x-4 mt-2 md:mt-0">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
-    $(document).ready(function() {
-        const currentYear = new Date().getFullYear();
-        $('#footer-year').text(currentYear);
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // FAQ content toggles
-        const faqToggles = document.querySelectorAll('.faq-toggle-dark');
-
-        faqToggles.forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('i');
-
-                // Toggle content visibility
-                content.classList.toggle('hidden');
-
-                // Rotate icon
-                if (content.classList.contains('hidden')) {
-                    icon.classList.remove('rotate-180');
-                } else {
-                    icon.classList.add('rotate-180');
-                }
-            });
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#footer-year').text(currentYear);
         });
 
-        // Smooth scrolling for navigation links
-        const navLinks = document.querySelectorAll('.guide-nav-link');
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ content toggles
+            const faqToggles = document.querySelectorAll('.faq-toggle-dark');
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
 
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
+                    // Toggle content visibility
+                    content.classList.toggle('hidden');
 
-                window.scrollTo({
-                    top: targetSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-
-                // Add active state to clicked link
-                navLinks.forEach(link => {
-                    link.classList.remove('bg-green-100', 'dark:bg-green',
-                        'text-green-800', 'dark:text-green');
-                });
-                this.classList.add('bg-green-100', 'dark:bg-green', 'text-green-800',
-                    'dark:text-green');
-            });
-        });
-
-        // Highlight active section while scrolling
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                const sectionHeight = section.clientHeight;
-
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    currentSection = '#' + section.getAttribute('id');
-                }
-            });
-
-            if (currentSection) {
-                navLinks.forEach(link => {
-                    link.classList.remove('bg-green-100', 'dark:bg-green', 'text-green-800',
-                        'dark:text-green');
-
-                    if (link.getAttribute('href') === currentSection) {
-                        link.classList.add('bg-green-100', 'dark:bg-green', 'text-green-800',
-                            'dark:text-green');
+                    // Rotate icon
+                    if (content.classList.contains('hidden')) {
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        icon.classList.add('rotate-180');
                     }
                 });
-            }
+            });
+
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.guide-nav-link');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+
+                    // Add active state to clicked link
+                    navLinks.forEach(link => {
+                        link.classList.remove('bg-green-100', 'dark:bg-green',
+                            'text-green-800', 'dark:text-green');
+                    });
+                    this.classList.add('bg-green-100', 'dark:bg-green', 'text-green-800',
+                        'dark:text-green');
+                });
+            });
+
+            // Highlight active section while scrolling
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+
+                let currentSection = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        currentSection = '#' + section.getAttribute('id');
+                    }
+                });
+
+                if (currentSection) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('bg-green-100', 'dark:bg-green', 'text-green-800',
+                            'dark:text-green');
+
+                        if (link.getAttribute('href') === currentSection) {
+                            link.classList.add('bg-green-100', 'dark:bg-green', 'text-green-800',
+                                'dark:text-green');
+                        }
+                    });
+                }
+            });
         });
-    });
     </script>
 </body>
 

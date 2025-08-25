@@ -30,231 +30,231 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
     <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#10B981',
-                    secondary: '#D97706',
-                    danger: '#EF4444',
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#D97706',
+                        danger: '#EF4444',
+                    }
                 }
             }
         }
-    }
 
-    // Dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        if (event.matches) {
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
-    });
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
     </script>
 
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
 
-    /* Sidebar styling */
-    .sidebar {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    @media (max-width: 768px) {
+        /* Sidebar styling */
         .sidebar {
-            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
         }
 
-        .sidebar.open {
-            transform: translateX(0);
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
         }
-    }
 
-    /* Hamburger menu */
-    .hamburger {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        transition: all 0.25s;
-        position: relative;
-    }
+        /* Hamburger menu */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
 
-    .hamburger-top,
-    .hamburger-middle,
-    .hamburger-bottom {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 24px;
-        height: 2px;
-        background: white;
-        transform: rotate(0);
-        transition: all 0.5s;
-    }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: white;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
 
-    .hamburger-middle {
-        transform: translateY(7px);
-    }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
 
-    .hamburger-bottom {
-        transform: translateY(14px);
-    }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
 
-    .open .hamburger-top {
-        transform: rotate(45deg) translateY(6px) translateX(6px);
-    }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
 
-    .open .hamburger-middle {
-        display: none;
-    }
+        .open .hamburger-middle {
+            display: none;
+        }
 
-    .open .hamburger-bottom {
-        transform: rotate(-45deg) translateY(6px) translateX(-6px);
-    }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
 
-    /* Card styles */
-    .card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        /* Card styles */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
 
-    /* Notification dot */
-    .notification-dot {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 8px;
-        height: 8px;
-        background-color: #EF4444;
-        border-radius: 50%;
-    }
+        /* Notification dot */
+        .notification-dot {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 8px;
+            height: 8px;
+            background-color: #EF4444;
+            border-radius: 50%;
+        }
 
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background: #10B981;
-        border-radius: 4px;
-    }
+        ::-webkit-scrollbar-thumb {
+            background: #10B981;
+            border-radius: 4px;
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #047857;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857;
+        }
 
-    /* Dark mode styles */
-    .dark ::-webkit-scrollbar-track {
-        background: #374151;
-    }
+        /* Dark mode styles */
+        .dark ::-webkit-scrollbar-track {
+            background: #374151;
+        }
 
-    /* DataTables custom styling */
-    table.dataTable thead th,
-    table.dataTable thead td {
-        padding: 12px 10px;
-        border-bottom: 1px solid #e5e7eb;
-    }
+        /* DataTables custom styling */
+        table.dataTable thead th,
+        table.dataTable thead td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
 
-    .dark table.dataTable thead th,
-    .dark table.dataTable thead td {
-        border-bottom: 1px solid #4b5563;
-    }
+        .dark table.dataTable thead th,
+        .dark table.dataTable thead td {
+            border-bottom: 1px solid #4b5563;
+        }
 
-    table.dataTable tbody th,
-    table.dataTable tbody td {
-        padding: 12px 10px;
-    }
+        table.dataTable tbody th,
+        table.dataTable tbody td {
+            padding: 12px 10px;
+        }
 
-    .dataTables_wrapper .dataTables_length,
-    .dataTables_wrapper .dataTables_filter,
-    .dataTables_wrapper .dataTables_info,
-    .dataTables_wrapper .dataTables_processing,
-    .dataTables_wrapper .dataTables_paginate {
-        margin-bottom: 1rem;
-        color: #4b5563;
-    }
+        .dataTables_wrapper .dataTables_length,
+        .dataTables_wrapper .dataTables_filter,
+        .dataTables_wrapper .dataTables_info,
+        .dataTables_wrapper .dataTables_processing,
+        .dataTables_wrapper .dataTables_paginate {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
 
-    .dark .dataTables_wrapper .dataTables_length,
-    .dark .dataTables_wrapper .dataTables_filter,
-    .dark .dataTables_wrapper .dataTables_info,
-    .dark .dataTables_wrapper .dataTables_processing,
-    .dark .dataTables_wrapper .dataTables_paginate {
-        color: #e5e7eb;
-    }
+        .dark .dataTables_wrapper .dataTables_length,
+        .dark .dataTables_wrapper .dataTables_filter,
+        .dark .dataTables_wrapper .dataTables_info,
+        .dark .dataTables_wrapper .dataTables_processing,
+        .dark .dataTables_wrapper .dataTables_paginate {
+            color: #e5e7eb;
+        }
 
-    .dataTables_wrapper .dataTables_length select {
-        padding: 0.25rem 2rem 0.25rem 0.75rem;
-        border-radius: 0.375rem;
-        border: 1px solid #d1d5db;
-        background-color: #fff;
-    }
+        .dataTables_wrapper .dataTables_length select {
+            padding: 0.25rem 2rem 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            background-color: #fff;
+        }
 
-    .dark .dataTables_wrapper .dataTables_length select {
-        background-color: #374151;
-        border-color: #4b5563;
-        color: #e5e7eb;
-    }
+        .dark .dataTables_wrapper .dataTables_length select {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #e5e7eb;
+        }
 
-    .dataTables_wrapper .dataTables_filter input {
-        padding: 0.5rem 1rem;
-        border-radius: 0.375rem;
-        border: 1px solid #d1d5db;
-        margin-left: 0.5rem;
-    }
+        .dataTables_wrapper .dataTables_filter input {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            margin-left: 0.5rem;
+        }
 
-    .dark .dataTables_wrapper .dataTables_filter input {
-        background-color: #374151;
-        border-color: #4b5563;
-        color: #e5e7eb;
-    }
+        .dark .dataTables_wrapper .dataTables_filter input {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #e5e7eb;
+        }
 
-    .dataTables_wrapper .dataTables_paginate .paginate_button {
-        padding: 0.375rem 0.75rem;
-        margin-left: 0.25rem;
-        border-radius: 0.375rem;
-        border: 1px solid #d1d5db;
-        background-color: #fff;
-    }
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 0.375rem 0.75rem;
+            margin-left: 0.25rem;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            background-color: #fff;
+        }
 
-    .dark .dataTables_wrapper .dataTables_paginate .paginate_button {
-        background-color: #374151;
-        border-color: #4b5563;
-        color: #e5e7eb !important;
-    }
+        .dark .dataTables_wrapper .dataTables_paginate .paginate_button {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #e5e7eb !important;
+        }
 
-    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
-    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-        background: linear-gradient(to bottom, #10B981 0%, #059669 100%);
-        color: white !important;
-        border: 1px solid #059669;
-    }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+            background: linear-gradient(to bottom, #10B981 0%, #059669 100%);
+            color: white !important;
+            border: 1px solid #059669;
+        }
 
-    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-        background: linear-gradient(to bottom, #f3f4f6 0%, #e5e7eb 100%);
-        color: #111827 !important;
-    }
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: linear-gradient(to bottom, #f3f4f6 0%, #e5e7eb 100%);
+            color: #111827 !important;
+        }
 
-    .dark .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-        background: linear-gradient(to bottom, #4b5563 0%, #374151 100%);
-        color: #e5e7eb !important;
-    }
+        .dark .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: linear-gradient(to bottom, #4b5563 0%, #374151 100%);
+            color: #e5e7eb !important;
+        }
     </style>
 </head>
 
@@ -344,7 +344,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                         </a>
                     </li>
                     <li>
-                        <a href="map.php"
+                        <a href="map2.php"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors">
                             <i class="fas fa-map-marker-alt w-6"></i>
                             <span>Campus Map</span>
@@ -1177,241 +1177,241 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
 
     <script>
-    $(document).ready(function() {
-        const currentYear = new Date().getFullYear();
-        $('#year').text(currentYear);
-    })
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
+        })
     </script>
     <script>
-    $(document).ready(function() {
-        // Mobile menu toggle
-        $('#menu-btn').click(function() {
-            $(this).toggleClass('open');
-            $('#sidebar').toggleClass('open');
-            $('#sidebar-overlay').toggleClass('hidden');
-            $('body').toggleClass('overflow-hidden');
-        });
+        $(document).ready(function() {
+            // Mobile menu toggle
+            $('#menu-btn').click(function() {
+                $(this).toggleClass('open');
+                $('#sidebar').toggleClass('open');
+                $('#sidebar-overlay').toggleClass('hidden');
+                $('body').toggleClass('overflow-hidden');
+            });
 
-        // Close sidebar on mobile
-        $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
-            $('#menu-btn').removeClass('open');
-            $('#sidebar').removeClass('open');
-            $('#sidebar-overlay').addClass('hidden');
-            $('body').removeClass('overflow-hidden');
-        });
-
-        // Handle window resize to reapply sidebar state if needed
-        $(window).resize(function() {
-            if (window.innerWidth >= 768) {
+            // Close sidebar on mobile
+            $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
+                $('#menu-btn').removeClass('open');
+                $('#sidebar').removeClass('open');
                 $('#sidebar-overlay').addClass('hidden');
                 $('body').removeClass('overflow-hidden');
-            }
-        });
+            });
 
-        // Initialize DataTable
-        $('#past-questions-table').DataTable({
-            responsive: true,
-            pageLength: 10,
-            language: {
-                search: "Search:",
-                lengthMenu: "Show _MENU_ entries",
-                info: "Showing _START_ to _END_ of _TOTAL_ entries",
-                paginate: {
-                    first: "First",
-                    last: "Last",
-                    next: "Next",
-                    previous: "Previous"
-                }
-            }
-        });
-
-        // Faculty and department data
-        const departmentsByFaculty = {
-            computing: [
-                'Computer Science',
-                'Information Technology',
-                'Software Engineering',
-                'Cyber Security'
-            ],
-            sciences: [
-                'Physics',
-                'Chemistry',
-                'Biology',
-                'Mathematics',
-                'Biochemistry'
-            ],
-            agriculture: [
-                'Crop Science',
-                'Animal Science',
-                'Agricultural Economics',
-                'Agricultural Extension'
-            ],
-            management: [
-                'Accounting',
-                'Business Administration',
-                'Economics',
-                'Banking and Finance'
-            ],
-            arts: [
-                'English Language',
-                'History',
-                'Political Science',
-                'Sociology'
-            ]
-        };
-
-        // Populate departments based on faculty selection (for filter)
-        $('#faculty-filter').change(function() {
-            const faculty = $(this).val();
-            const departmentSelect = $('#department-filter');
-
-            // Clear current options
-            departmentSelect.html('<option value="">All Departments</option>');
-
-            if (faculty) {
-                // Enable department select
-                departmentSelect.prop('disabled', false);
-
-                // Add departments for selected faculty
-                const departments = departmentsByFaculty[faculty] || [];
-                departments.forEach(function(department) {
-                    departmentSelect.append(
-                        `<option value="${department.toLowerCase().replace(/\s+/g, '_')}">${department}</option>`
-                    );
-                });
-            } else {
-                // Disable department select if no faculty selected
-                departmentSelect.prop('disabled', true);
-            }
-        });
-
-        // Populate departments based on faculty selection (for upload)
-        $('#upload-faculty').change(function() {
-            const faculty = $(this).val();
-            const departmentSelect = $('#upload-department');
-
-            // Clear current options
-            departmentSelect.html('<option value="">Select Department</option>');
-
-            if (faculty) {
-                // Enable department select
-                departmentSelect.prop('disabled', false);
-
-                // Add departments for selected faculty
-                const departments = departmentsByFaculty[faculty] || [];
-                departments.forEach(function(department) {
-                    departmentSelect.append(
-                        `<option value="${department.toLowerCase().replace(/\s+/g, '_')}">${department}</option>`
-                    );
-                });
-            } else {
-                // Disable department select if no faculty selected
-                departmentSelect.prop('disabled', true);
-            }
-        });
-
-        //    file upload
-        $('#upload-form').submit(function(e) {
-            e.preventDefault();
-            var $submitBtn = $(this).find('button[type="submit"]');
-            $submitBtn.prop('disabled', true).text('Uploading...');
-            var formData = new FormData(this);
-
-            $.ajax({
-                url: 'upload_past_question.php',
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    let res = {};
-                    try {
-                        res = typeof response === 'object' ? response : JSON.parse(
-                            response);
-                    } catch (e) {}
-                    if (res.success) {
-                        $('#upload-modal').addClass('hidden');
-                        $('#upload-form')[0].reset();
-                        $('#file-name').addClass('hidden');
-                        showPopup(true, res.message);
-                        setTimeout(() => {
-                            location.reload();
-                        }, 2000);
-                    } else {
-                        showPopup(false, res.message || 'Upload failed.');
-                    }
-                },
-                error: function() {
-                    showPopup(false, 'An error occurred while uploading.');
-                },
-                complete: function() {
-                    $submitBtn.prop('disabled', false).text('Upload');
+            // Handle window resize to reapply sidebar state if needed
+            $(window).resize(function() {
+                if (window.innerWidth >= 768) {
+                    $('#sidebar-overlay').addClass('hidden');
+                    $('body').removeClass('overflow-hidden');
                 }
             });
-        });
+
+            // Initialize DataTable
+            $('#past-questions-table').DataTable({
+                responsive: true,
+                pageLength: 10,
+                language: {
+                    search: "Search:",
+                    lengthMenu: "Show _MENU_ entries",
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                }
+            });
+
+            // Faculty and department data
+            const departmentsByFaculty = {
+                computing: [
+                    'Computer Science',
+                    'Information Technology',
+                    'Software Engineering',
+                    'Cyber Security'
+                ],
+                sciences: [
+                    'Physics',
+                    'Chemistry',
+                    'Biology',
+                    'Mathematics',
+                    'Biochemistry'
+                ],
+                agriculture: [
+                    'Crop Science',
+                    'Animal Science',
+                    'Agricultural Economics',
+                    'Agricultural Extension'
+                ],
+                management: [
+                    'Accounting',
+                    'Business Administration',
+                    'Economics',
+                    'Banking and Finance'
+                ],
+                arts: [
+                    'English Language',
+                    'History',
+                    'Political Science',
+                    'Sociology'
+                ]
+            };
+
+            // Populate departments based on faculty selection (for filter)
+            $('#faculty-filter').change(function() {
+                const faculty = $(this).val();
+                const departmentSelect = $('#department-filter');
+
+                // Clear current options
+                departmentSelect.html('<option value="">All Departments</option>');
+
+                if (faculty) {
+                    // Enable department select
+                    departmentSelect.prop('disabled', false);
+
+                    // Add departments for selected faculty
+                    const departments = departmentsByFaculty[faculty] || [];
+                    departments.forEach(function(department) {
+                        departmentSelect.append(
+                            `<option value="${department.toLowerCase().replace(/\s+/g, '_')}">${department}</option>`
+                        );
+                    });
+                } else {
+                    // Disable department select if no faculty selected
+                    departmentSelect.prop('disabled', true);
+                }
+            });
+
+            // Populate departments based on faculty selection (for upload)
+            $('#upload-faculty').change(function() {
+                const faculty = $(this).val();
+                const departmentSelect = $('#upload-department');
+
+                // Clear current options
+                departmentSelect.html('<option value="">Select Department</option>');
+
+                if (faculty) {
+                    // Enable department select
+                    departmentSelect.prop('disabled', false);
+
+                    // Add departments for selected faculty
+                    const departments = departmentsByFaculty[faculty] || [];
+                    departments.forEach(function(department) {
+                        departmentSelect.append(
+                            `<option value="${department.toLowerCase().replace(/\s+/g, '_')}">${department}</option>`
+                        );
+                    });
+                } else {
+                    // Disable department select if no faculty selected
+                    departmentSelect.prop('disabled', true);
+                }
+            });
+
+            //    file upload
+            $('#upload-form').submit(function(e) {
+                e.preventDefault();
+                var $submitBtn = $(this).find('button[type="submit"]');
+                $submitBtn.prop('disabled', true).text('Uploading...');
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: 'upload_past_question.php',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        let res = {};
+                        try {
+                            res = typeof response === 'object' ? response : JSON.parse(
+                                response);
+                        } catch (e) {}
+                        if (res.success) {
+                            $('#upload-modal').addClass('hidden');
+                            $('#upload-form')[0].reset();
+                            $('#file-name').addClass('hidden');
+                            showPopup(true, res.message);
+                            setTimeout(() => {
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            showPopup(false, res.message || 'Upload failed.');
+                        }
+                    },
+                    error: function() {
+                        showPopup(false, 'An error occurred while uploading.');
+                    },
+                    complete: function() {
+                        $submitBtn.prop('disabled', false).text('Upload');
+                    }
+                });
+            });
 
 
-        // popup logics to show success or error message. 
-        function showPopup(success, message) {
-            $('#popup-title').text(success ? 'Congratulations!' : 'Error');
-            $('#popup-message').text(message);
-            $('#upload-popup').removeClass('hidden');
-            // Add animated confetti for success
-            if (success) {
-                $('#popup-animation').html(
-                    '<img src="https://cdn.pixabay.com/animation/2022/10/13/14/44/14-44-47-282_512.gif" class="w-24 h-24 mx-auto mb-2" alt="Confetti">'
-                );
-            } else {
-                $('#popup-animation').html(
-                    '<i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-2"></i>');
+            // popup logics to show success or error message. 
+            function showPopup(success, message) {
+                $('#popup-title').text(success ? 'Congratulations!' : 'Error');
+                $('#popup-message').text(message);
+                $('#upload-popup').removeClass('hidden');
+                // Add animated confetti for success
+                if (success) {
+                    $('#popup-animation').html(
+                        '<img src="https://cdn.pixabay.com/animation/2022/10/13/14/44/14-44-47-282_512.gif" class="w-24 h-24 mx-auto mb-2" alt="Confetti">'
+                    );
+                } else {
+                    $('#popup-animation').html(
+                        '<i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-2"></i>');
+                }
             }
-        }
 
-        $('#close-popup').click(function() {
-            $('#upload-popup').addClass('hidden');
+            $('#close-popup').click(function() {
+                $('#upload-popup').addClass('hidden');
+            });
+
+            // Upload modal handlers
+            $('#upload-btn').click(function() {
+                $('#upload-modal').removeClass('hidden');
+            });
+
+            $('#close-modal, #cancel-upload').click(function() {
+                $('#upload-modal').addClass('hidden');
+                $('#upload-form')[0].reset();
+                $('#file-name').addClass('hidden');
+            });
+
+            // View button handlers
+            $('.view-btn').click(function() {
+                // Get course details (this would fetch the actual PDF)
+                const row = $(this).closest('tr');
+                const courseCode = row.find('td:eq(0)').text();
+                const courseTitle = row.find('td:eq(1)').text();
+
+                // Set modal title and content
+                $('#view-title').text(`${courseCode} - ${courseTitle}`);
+
+                // In a real implementation, this would be the path to the actual PDF
+                $('#pdf-viewer').attr('src', 'https://mozilla.github.io/pdf.js/web/viewer.html'
+                    //  "uploads/past_questions/uploads/past_questions/682db3753e8c4.pdf"
+                );
+
+                // Show modal
+                $('#view-modal').removeClass('hidden');
+            });
+
+            $('#close-view-modal').click(function() {
+                $('#view-modal').addClass('hidden');
+                $('#pdf-viewer').attr('src', '#');
+            });
+
+            // Download button handler
+            $('.download-btn, #download-from-view').click(function() {
+                // In a real implementation, this would trigger a file download
+                alert('Download started! the file would be downloaded soon.');
+            });
         });
-
-        // Upload modal handlers
-        $('#upload-btn').click(function() {
-            $('#upload-modal').removeClass('hidden');
-        });
-
-        $('#close-modal, #cancel-upload').click(function() {
-            $('#upload-modal').addClass('hidden');
-            $('#upload-form')[0].reset();
-            $('#file-name').addClass('hidden');
-        });
-
-        // View button handlers
-        $('.view-btn').click(function() {
-            // Get course details (this would fetch the actual PDF)
-            const row = $(this).closest('tr');
-            const courseCode = row.find('td:eq(0)').text();
-            const courseTitle = row.find('td:eq(1)').text();
-
-            // Set modal title and content
-            $('#view-title').text(`${courseCode} - ${courseTitle}`);
-
-            // In a real implementation, this would be the path to the actual PDF
-            $('#pdf-viewer').attr('src', 'https://mozilla.github.io/pdf.js/web/viewer.html'
-                //  "uploads/past_questions/uploads/past_questions/682db3753e8c4.pdf"
-            );
-
-            // Show modal
-            $('#view-modal').removeClass('hidden');
-        });
-
-        $('#close-view-modal').click(function() {
-            $('#view-modal').addClass('hidden');
-            $('#pdf-viewer').attr('src', '#');
-        });
-
-        // Download button handler
-        $('.download-btn, #download-from-view').click(function() {
-            // In a real implementation, this would trigger a file download
-            alert('Download started! the file would be downloaded soon.');
-        });
-    });
     </script>
     <!-- Success/Error Popup -->
     <div id="upload-popup" class="fixed inset-0 z-50 flex items-center justify-center hidden">

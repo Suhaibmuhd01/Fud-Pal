@@ -21,167 +21,167 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 
     <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#10B981',
-                    secondary: '#D97706',
-                    danger: '#EF4444',
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#D97706',
+                        danger: '#EF4444',
+                    }
                 }
             }
         }
-    }
 
-    // Dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        if (event.matches) {
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
-    });
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
     </script>
 
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
 
-    /* Sidebar styling */
-    .sidebar {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    @media (max-width: 768px) {
+        /* Sidebar styling */
         .sidebar {
-            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
         }
 
-        .sidebar.open {
-            transform: translateX(0);
-        }
-    }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
 
-    /* Hamburger menu */
-    .hamburger {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        transition: all 0.25s;
-        position: relative;
-    }
-
-    .hamburger-top,
-    .hamburger-middle,
-    .hamburger-bottom {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 24px;
-        height: 2px;
-        background: white;
-        transform: rotate(0);
-        transition: all 0.5s;
-    }
-
-    .hamburger-middle {
-        transform: translateY(7px);
-    }
-
-    .hamburger-bottom {
-        transform: translateY(14px);
-    }
-
-    .open .hamburger-top {
-        transform: rotate(45deg) translateY(6px) translateX(6px);
-    }
-
-    .open .hamburger-middle {
-        display: none;
-    }
-
-    .open .hamburger-bottom {
-        transform: rotate(-45deg) translateY(6px) translateX(-6px);
-    }
-
-    /* Map container */
-    #map {
-        height: 100%;
-        width: 100%;
-        min-height: 400px;
-        border-radius: 0.5rem;
-    }
-
-    /* Place cards */
-    .place-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .place-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    /* Location marker pulse animation */
-    @keyframes pulse {
-        0% {
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            .sidebar.open {
+                transform: translateX(0);
+            }
         }
 
-        70% {
-            box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+        /* Hamburger menu */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
         }
 
-        100% {
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: white;
+            transform: rotate(0);
+            transition: all 0.5s;
         }
-    }
 
-    .pulse {
-        animation: pulse 2s infinite;
-    }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
 
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
 
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background: #10B981;
-        border-radius: 4px;
-    }
+        .open .hamburger-middle {
+            display: none;
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #047857;
-    }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
 
-    /* Dark mode styles */
-    .dark ::-webkit-scrollbar-track {
-        background: #374151;
-    }
+        /* Map container */
+        #map {
+            height: 100%;
+            width: 100%;
+            min-height: 400px;
+            border-radius: 0.5rem;
+        }
 
-    /* Notification dot */
-    .notification-dot {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 8px;
-        height: 8px;
-        background-color: #EF4444;
-        border-radius: 50%;
-    }
+        /* Place cards */
+        .place-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Location marker pulse animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #10B981;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857;
+        }
+
+        /* Dark mode styles */
+        .dark ::-webkit-scrollbar-track {
+            background: #374151;
+        }
+
+        /* Notification dot */
+        .notification-dot {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 8px;
+            height: 8px;
+            background-color: #EF4444;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -270,7 +270,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                         </a>
                     </li>
                     <li>
-                        <a href="map.php" class="flex items-center space-x-3 px-4 py-3 bg-green-700 text-white">
+                        <a href="map2.php" class="flex items-center space-x-3 px-4 py-3 bg-green-700 text-white">
                             <i class="fas fa-map-marker-alt w-6"></i>
                             <span>Campus Map</span>
                         </a>
@@ -595,282 +595,282 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
 
     <script>
-    $(document).ready(function() {
-        const currentYear = new Date().getFullYear();
-        $('#year').text(currentYear);
-    })
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
+        })
     </script>
 
     <script>
-    $(document).ready(function() {
-        // Mobile menu toggle
-        $('#menu-btn').click(function() {
-            $(this).toggleClass('open');
-            $('#sidebar').toggleClass('open');
-            $('#sidebar-overlay').toggleClass('hidden');
-            $('body').toggleClass('overflow-hidden');
-        });
+        $(document).ready(function() {
+            // Mobile menu toggle
+            $('#menu-btn').click(function() {
+                $(this).toggleClass('open');
+                $('#sidebar').toggleClass('open');
+                $('#sidebar-overlay').toggleClass('hidden');
+                $('body').toggleClass('overflow-hidden');
+            });
 
-        // location filter
-        $('.location-filter').click(function() {
-            $('.location-filter').removeClass(
-                'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
-            $('.location-filter').addClass(
-                'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-            $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-            $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+            // location filter
+            $('.location-filter').click(function() {
+                $('.location-filter').removeClass(
+                    'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+                $('.location-filter').addClass(
+                    'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+                $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+                $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
 
-            // Filter markers on the map based on category
-            const category = $(this).data('category');
-            filterMarkers(category);
-        });
+                // Filter markers on the map based on category
+                const category = $(this).data('category');
+                filterMarkers(category);
+            });
 
-        // Close sidebar on mobile
-        $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
-            $('#menu-btn').removeClass('open');
-            $('#sidebar').removeClass('open');
-            $('#sidebar-overlay').addClass('hidden');
-            $('body').removeClass('overflow-hidden');
-        });
-
-        // Handle window resize to reapply sidebar state if needed
-        $(window).resize(function() {
-            if (window.innerWidth >= 768) {
+            // Close sidebar on mobile
+            $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
+                $('#menu-btn').removeClass('open');
+                $('#sidebar').removeClass('open');
                 $('#sidebar-overlay').addClass('hidden');
                 $('body').removeClass('overflow-hidden');
-            }
+            });
+
+            // Handle window resize to reapply sidebar state if needed
+            $(window).resize(function() {
+                if (window.innerWidth >= 768) {
+                    $('#sidebar-overlay').addClass('hidden');
+                    $('body').removeClass('overflow-hidden');
+                }
+            });
+
+            // Location filters
+            $('.location-filter').click(function() {
+                $('.location-filter').removeClass(
+                    'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+                $('.location-filter').addClass(
+                    'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+                $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+                $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+
+                // Filter markers on the map based on category
+                const category = $(this).text().trim();
+                filterMarkers(category);
+            });
+
+            // Initialize map
+            initMap();
         });
 
-        // Location filters
-        $('.location-filter').click(function() {
-            $('.location-filter').removeClass(
-                'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
-            $('.location-filter').addClass(
-                'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-            $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-            $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
-
-            // Filter markers on the map based on category
-            const category = $(this).text().trim();
-            filterMarkers(category);
-        });
-
-        // Initialize map
-        initMap();
-    });
-
-    // Mock data for campus locations
-    const locations = [{
-            name: "Administrative Block",
-            description: "Main administrative offices, including Registry and Bursary.",
-            category: "Administrative",
-            position: {
-                lat: 11.7868,
-                lng: 9.3380
+        // Mock data for campus locations
+        const locations = [{
+                name: "Administrative Block",
+                description: "Main administrative offices, including Registry and Bursary.",
+                category: "Administrative",
+                position: {
+                    lat: 11.7868,
+                    lng: 9.3380
+                }
+            },
+            {
+                name: "University Library",
+                description: "Central library with study areas and research resources.",
+                category: "Academic Buildings",
+                position: {
+                    lat: 11.7873,
+                    lng: 9.3386
+                }
+            },
+            {
+                name: "Faculty of Computing",
+                description: "Departments of Computer Science, Software Engineering, Cyber Security, and IT.",
+                category: "Academic Buildings",
+                position: {
+                    lat: 11.7880,
+                    lng: 9.3375
+                }
+            },
+            {
+                name: "Male Hostel Block A",
+                description: "On-campus accommodation for male students.",
+                category: "Hostels",
+                position: {
+                    lat: 11.7865,
+                    lng: 9.3396
+                }
+            },
+            {
+                name: "Female Hostel Block B",
+                description: "On-campus accommodation for female students.",
+                category: "Hostels",
+                position: {
+                    lat: 11.7860,
+                    lng: 9.3390
+                }
+            },
+            {
+                name: "University Cafeteria",
+                description: "Main dining facility serving meals to students and staff.",
+                category: "Amenities",
+                position: {
+                    lat: 11.7875,
+                    lng: 9.3398
+                }
+            },
+            {
+                name: "Sport Complex",
+                description: "Facilities for various sports activities and events.",
+                category: "Amenities",
+                position: {
+                    lat: 11.7890,
+                    lng: 9.3395
+                }
             }
-        },
-        {
-            name: "University Library",
-            description: "Central library with study areas and research resources.",
-            category: "Academic Buildings",
-            position: {
+        ];
+
+        let map;
+        let markers = [];
+
+        function initMap() {
+            // Create the map centered on FUD
+            const fudCoordinates = {
                 lat: 11.7873,
-                lng: 9.3386
-            }
-        },
-        {
-            name: "Faculty of Computing",
-            description: "Departments of Computer Science, Software Engineering, Cyber Security, and IT.",
-            category: "Academic Buildings",
-            position: {
-                lat: 11.7880,
-                lng: 9.3375
-            }
-        },
-        {
-            name: "Male Hostel Block A",
-            description: "On-campus accommodation for male students.",
-            category: "Hostels",
-            position: {
-                lat: 11.7865,
-                lng: 9.3396
-            }
-        },
-        {
-            name: "Female Hostel Block B",
-            description: "On-campus accommodation for female students.",
-            category: "Hostels",
-            position: {
-                lat: 11.7860,
-                lng: 9.3390
-            }
-        },
-        {
-            name: "University Cafeteria",
-            description: "Main dining facility serving meals to students and staff.",
-            category: "Amenities",
-            position: {
-                lat: 11.7875,
-                lng: 9.3398
-            }
-        },
-        {
-            name: "Sport Complex",
-            description: "Facilities for various sports activities and events.",
-            category: "Amenities",
-            position: {
-                lat: 11.7890,
-                lng: 9.3395
-            }
-        }
-    ];
+                lng: 9.3385
+            };
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: fudCoordinates,
+                zoom: 16,
+                mapTypeId: "roadmap",
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                },
+                streetViewControl: true,
+                fullscreenControl: true,
+                gestureHandling: "cooperative"
+            });
 
-    let map;
-    let markers = [];
+            // Add markers for all locations
+            locations.forEach(location => {
+                addMarker(location);
+            });
 
-    function initMap() {
-        // Create the map centered on FUD
-        const fudCoordinates = {
-            lat: 11.7873,
-            lng: 9.3385
-        };
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: fudCoordinates,
-            zoom: 16,
-            mapTypeId: "roadmap",
-            mapTypeControl: true,
-            mapTypeControlOptions: {
-                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-            },
-            streetViewControl: true,
-            fullscreenControl: true,
-            gestureHandling: "cooperative"
-        });
+            // Set up search box functionality
+            const searchBox = document.getElementById('search-box');
+            searchBox.addEventListener('input', function() {
+                const searchTerm = searchBox.value.toLowerCase();
 
-        // Add markers for all locations
-        locations.forEach(location => {
-            addMarker(location);
-        });
+                // Filter locations based on search term
+                if (searchTerm) {
+                    markers.forEach((marker, i) => {
+                        const locationName = locations[i].name.toLowerCase();
+                        const locationDesc = locations[i].description.toLowerCase();
 
-        // Set up search box functionality
-        const searchBox = document.getElementById('search-box');
-        searchBox.addEventListener('input', function() {
-            const searchTerm = searchBox.value.toLowerCase();
-
-            // Filter locations based on search term
-            if (searchTerm) {
-                markers.forEach((marker, i) => {
-                    const locationName = locations[i].name.toLowerCase();
-                    const locationDesc = locations[i].description.toLowerCase();
-
-                    if (locationName.includes(searchTerm) || locationDesc.includes(searchTerm)) {
+                        if (locationName.includes(searchTerm) || locationDesc.includes(searchTerm)) {
+                            marker.setVisible(true);
+                        } else {
+                            marker.setVisible(false);
+                        }
+                    });
+                } else {
+                    // Show all markers if search box is empty
+                    markers.forEach(marker => {
                         marker.setVisible(true);
-                    } else {
-                        marker.setVisible(false);
-                    }
-                });
-            } else {
-                // Show all markers if search box is empty
-                markers.forEach(marker => {
-                    marker.setVisible(true);
-                });
-            }
-        });
+                    });
+                }
+            });
 
-        // Set up zoom controls
-        document.getElementById('zoom-in').addEventListener('click', function() {
-            const currentZoom = map.getZoom();
-            map.setZoom(currentZoom + 1);
-        });
+            // Set up zoom controls
+            document.getElementById('zoom-in').addEventListener('click', function() {
+                const currentZoom = map.getZoom();
+                map.setZoom(currentZoom + 1);
+            });
 
-        document.getElementById('zoom-out').addEventListener('click', function() {
-            const currentZoom = map.getZoom();
-            map.setZoom(currentZoom - 1);
-        });
+            document.getElementById('zoom-out').addEventListener('click', function() {
+                const currentZoom = map.getZoom();
+                map.setZoom(currentZoom - 1);
+            });
 
-        // Set up "My Location" button
-        document.getElementById('my-location').addEventListener('click', function() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        const userLocation = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
-                        };
+            // Set up "My Location" button
+            document.getElementById('my-location').addEventListener('click', function() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            const userLocation = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
 
-                        // Add a marker for the user's location
-                        const userMarker = new google.maps.Marker({
-                            position: userLocation,
-                            map: map,
-                            icon: {
-                                path: google.maps.SymbolPath.CIRCLE,
-                                fillColor: '#4285F4',
-                                fillOpacity: 1,
-                                strokeColor: '#ffffff',
-                                strokeWeight: 2,
-                                scale: 8
-                            },
-                            title: "Your Location"
-                        });
+                            // Add a marker for the user's location
+                            const userMarker = new google.maps.Marker({
+                                position: userLocation,
+                                map: map,
+                                icon: {
+                                    path: google.maps.SymbolPath.CIRCLE,
+                                    fillColor: '#4285F4',
+                                    fillOpacity: 1,
+                                    strokeColor: '#ffffff',
+                                    strokeWeight: 2,
+                                    scale: 8
+                                },
+                                title: "Your Location"
+                            });
 
-                        // Add a pulsing effect
-                        const pulsingDot = document.createElement('div');
-                        pulsingDot.className = 'pulse';
+                            // Add a pulsing effect
+                            const pulsingDot = document.createElement('div');
+                            pulsingDot.className = 'pulse';
 
-                        // Center the map on the user's location
-                        map.setCenter(userLocation);
-                        map.setZoom(18);
-                    },
-                    function(error) {
-                        alert("Error accessing your location: " + error.message);
-                    }
-                );
-            } else {
-                alert("Geolocation is not supported by your browser.");
-            }
-        });
-    }
-
-    function addMarker(location) {
-        // Set marker color based on category
-        let markerColor;
-        switch (location.category) {
-            case "Academic Buildings":
-                markerColor = "blue";
-                break;
-            case "Administrative":
-                markerColor = "green";
-                break;
-            case "Hostels":
-                markerColor = "orange";
-                break;
-            case "Amenities":
-                markerColor = "purple";
-                break;
-            default:
-                markerColor = "red";
+                            // Center the map on the user's location
+                            map.setCenter(userLocation);
+                            map.setZoom(18);
+                        },
+                        function(error) {
+                            alert("Error accessing your location: " + error.message);
+                        }
+                    );
+                } else {
+                    alert("Geolocation is not supported by your browser.");
+                }
+            });
         }
 
-        // Create marker
-        const marker = new google.maps.Marker({
-            position: location.position,
-            map: map,
-            title: location.name,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                fillColor: markerColor,
-                fillOpacity: 0.9,
-                strokeColor: '#ffffff',
-                strokeWeight: 2,
-                scale: 10
-            },
-            animation: google.maps.Animation.DROP
-        });
+        function addMarker(location) {
+            // Set marker color based on category
+            let markerColor;
+            switch (location.category) {
+                case "Academic Buildings":
+                    markerColor = "blue";
+                    break;
+                case "Administrative":
+                    markerColor = "green";
+                    break;
+                case "Hostels":
+                    markerColor = "orange";
+                    break;
+                case "Amenities":
+                    markerColor = "purple";
+                    break;
+                default:
+                    markerColor = "red";
+            }
 
-        markers.push(marker);
+            // Create marker
+            const marker = new google.maps.Marker({
+                position: location.position,
+                map: map,
+                title: location.name,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: markerColor,
+                    fillOpacity: 0.9,
+                    strokeColor: '#ffffff',
+                    strokeWeight: 2,
+                    scale: 10
+                },
+                animation: google.maps.Animation.DROP
+            });
 
-        // Create info window with location details
-        const infoContent = `
+            markers.push(marker);
+
+            // Create info window with location details
+            const infoContent = `
                 <div class="p-2">
                     <h3 class="font-semibold text-lg">${location.name}</h3>
                     <p class="text-sm">${location.description}</p>
@@ -880,54 +880,54 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                 </div>
             `;
 
-        const infoWindow = new google.maps.InfoWindow({
-            content: infoContent
-        });
-
-        // Show info window when marker is clicked
-        marker.addListener('click', function() {
-            // Close any open info windows
-            markers.forEach(m => {
-                if (m.infoWindow) {
-                    m.infoWindow.close();
-                }
+            const infoWindow = new google.maps.InfoWindow({
+                content: infoContent
             });
 
-            infoWindow.open(map, marker);
-            marker.infoWindow = infoWindow;
+            // Show info window when marker is clicked
+            marker.addListener('click', function() {
+                // Close any open info windows
+                markers.forEach(m => {
+                    if (m.infoWindow) {
+                        m.infoWindow.close();
+                    }
+                });
 
-            // Center the map on the clicked marker
-            map.panTo(marker.getPosition());
-        });
+                infoWindow.open(map, marker);
+                marker.infoWindow = infoWindow;
 
-        // Make place cards in the list clickable
-        $(document).on('click', '.place-card', function() {
-            const placeName = $(this).find('h3').text();
-
-            // Find the corresponding marker
-            markers.forEach((marker, i) => {
-                if (locations[i].name === placeName) {
-                    google.maps.event.trigger(marker, 'click');
-                }
+                // Center the map on the clicked marker
+                map.panTo(marker.getPosition());
             });
-        });
-    }
 
-    function filterMarkers(category) {
-        if (category === "All Locations") {
-            markers.forEach(marker => {
-                marker.setVisible(true);
-            });
-        } else {
-            markers.forEach((marker, i) => {
-                if (locations[i].category === category) {
-                    marker.setVisible(true);
-                } else {
-                    marker.setVisible(false);
-                }
+            // Make place cards in the list clickable
+            $(document).on('click', '.place-card', function() {
+                const placeName = $(this).find('h3').text();
+
+                // Find the corresponding marker
+                markers.forEach((marker, i) => {
+                    if (locations[i].name === placeName) {
+                        google.maps.event.trigger(marker, 'click');
+                    }
+                });
             });
         }
-    }
+
+        function filterMarkers(category) {
+            if (category === "All Locations") {
+                markers.forEach(marker => {
+                    marker.setVisible(true);
+                });
+            } else {
+                markers.forEach((marker, i) => {
+                    if (locations[i].category === category) {
+                        marker.setVisible(true);
+                    } else {
+                        marker.setVisible(false);
+                    }
+                });
+            }
+        }
     </script>
 </body>
 

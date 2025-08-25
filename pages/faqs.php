@@ -91,7 +91,7 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="pages/map.php"
+                    <a href="pages/map2.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -197,7 +197,7 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="map.php"
+                    <a href="map2.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -976,18 +976,18 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </footer>
     <script>
-    $(document).ready(function() {
-        const currentYear = new Date().getFullYear();
-        $('#year').text(currentYear);
-    });
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
+        });
     </script>
     </div>
 
     <script>
-    $(document).ready(function() {
-        const currentYear = new Date().getFullYear();
-        $('#year').text(currentYear);
-    });
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
+        });
     </script>
 
     <!--JavaScriptfor FAQ toggles-- >
