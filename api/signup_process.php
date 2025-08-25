@@ -3,13 +3,13 @@
 session_start();
 
 // Database connection
-function connectDB()
-{
+function connectDB() {
     $host = "localhost";
     $username = "root";
     $password = "";
     $database = "fudpal_db";
-
+    
+    // Check if database exists, if not create it
     $conn = new mysqli($host, $username, $password);
     if ($conn->connect_error) {
         return [
@@ -17,7 +17,7 @@ function connectDB()
             'message' => 'Database connection failed: ' . $conn->connect_error
         ];
     }
-
+    
     // Create database if it doesn't exist
     $sql = "CREATE DATABASE IF NOT EXISTS $database";
     if (!$conn->query($sql)) {
@@ -26,10 +26,10 @@ function connectDB()
             'message' => 'Error creating database: ' . $conn->error
         ];
     }
-
+    
     // Close connection and reconnect to the new database
     $conn->close();
-
+    
     $conn = new mysqli($host, $username, $password, $database);
     if ($conn->connect_error) {
         return [
@@ -37,7 +37,7 @@ function connectDB()
             'message' => 'Database connection failed: ' . $conn->connect_error
         ];
     }
-
+    
     // Create users table if it doesn't exist
     $sql = "CREATE TABLE IF NOT EXISTS users (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -58,14 +58,14 @@ function connectDB()
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )";
-
+    
     if (!$conn->query($sql)) {
         return [
             'success' => false,
             'message' => 'Error creating users table: ' . $conn->error
         ];
     }
-
+    
     // Create login_logs table
     $sql = "CREATE TABLE IF NOT EXISTS login_logs (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -75,14 +75,14 @@ function connectDB()
         login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     )";
-
+    
     if (!$conn->query($sql)) {
         return [
             'success' => false,
             'message' => 'Error creating login_logs table: ' . $conn->error
         ];
     }
-
+    
     // Create announcements table
     $sql = "CREATE TABLE IF NOT EXISTS announcements (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -94,14 +94,14 @@ function connectDB()
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE
     )";
-
+    
     if (!$conn->query($sql)) {
         return [
             'success' => false,
             'message' => 'Error creating announcements table: ' . $conn->error
         ];
     }
-
+    
     // Create past_questions table
     $sql = "CREATE TABLE IF NOT EXISTS past_questions (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -114,14 +114,14 @@ function connectDB()
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (uploaded_by) REFERENCES users(id) ON DELETE CASCADE
     )";
-
+    
     if (!$conn->query($sql)) {
         return [
             'success' => false,
             'message' => 'Error creating past_questions table: ' . $conn->error
         ];
     }
-
+    
     // Create forum_topics table
     $sql = "CREATE TABLE IF NOT EXISTS forum_topics (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -135,14 +135,14 @@ function connectDB()
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE
     )";
-
+    
     if (!$conn->query($sql)) {
         return [
             'success' => false,
             'message' => 'Error creating forum_topics table: ' . $conn->error
         ];
     }
-
+    
     // Create forum_replies table
     $sql = "CREATE TABLE IF NOT EXISTS forum_replies (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -155,14 +155,14 @@ function connectDB()
         FOREIGN KEY (topic_id) REFERENCES forum_topics(id) ON DELETE CASCADE,
         FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE
     )";
-
+    
     if (!$conn->query($sql)) {
         return [
             'success' => false,
             'message' => 'Error creating forum_replies table: ' . $conn->error
         ];
     }
-
+    
     // Create notifications table
     $sql = "CREATE TABLE IF NOT EXISTS notifications (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -173,20 +173,19 @@ function connectDB()
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     )";
-
+    
     if (!$conn->query($sql)) {
         return [
             'success' => false,
             'message' => 'Error creating notifications table: ' . $conn->error
         ];
     }
-
+    
     return $conn;
 }
 
 // Function to sanitize input data
-function sanitizeInput($data)
-{
+function sanitizeInput($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -207,21 +206,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $security_question = sanitizeInput($_POST['security_question']);
     $security_answer = sanitizeInput($_POST['security_answer']);
-
+    
     // Validate inputs
-    if (
-        empty($fullname) || empty($regnum) || empty($email) || empty($phone) ||
-        empty($faculty) || empty($department) || empty($level) || empty($session) ||
-        empty($password) || empty($security_question) || empty($security_answer)
-    ) {
-
+    if (empty($fullname) || empty($regnum) || empty($email) || empty($phone) || 
+        empty($faculty) || empty($department) || empty($level) || empty($session) || 
+        empty($password) || empty($security_question) || empty($security_answer)) {
+        
         echo json_encode([
             'success' => false,
             'message' => 'All fields are required'
         ]);
         exit;
     }
-
+    
     // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode([
@@ -230,7 +227,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
         exit;
     }
-
+    
     // Validate registration number format
     if (!preg_match('/^[A-Z]{2,5}\/[A-Z]{2,5}\/\d{2}\/\d{4}$/', $regnum)) {
         echo json_encode([
@@ -239,7 +236,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
         exit;
     }
-
+    
     // Validate password strength
     if (strlen($password) < 8) {
         echo json_encode([
@@ -248,36 +245,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
         exit;
     }
-
+    
+    // Connect to database
     $conn = connectDB();
-    // Return error message if connection failed
+    
     if (!is_object($conn)) {
-        echo json_encode($conn);
+        echo json_encode($conn); // Return error message if connection failed
         exit;
     }
-
+    
     // Check if registration number already exists
     $stmt = $conn->prepare("SELECT id FROM users WHERE regnum = ?");
     $stmt->bind_param("s", $regnum);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    
     if ($result->num_rows > 0) {
         echo json_encode([
             'success' => false,
-            'message' => 'Registration number already exists, Use a Different one'
+            'message' => 'Registration number already exists'
         ]);
         $stmt->close();
         $conn->close();
         exit;
     }
-
+    
     // Check if email already exists
     $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    
     if ($result->num_rows > 0) {
         echo json_encode([
             'success' => false,
@@ -287,14 +285,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->close();
         exit;
     }
-
+    
     // Hash password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
+    
     // Prepare and execute SQL statement
     $stmt = $conn->prepare("INSERT INTO users (fullname, regnum, email, phone, faculty, department, level, session, password, security_question, security_answer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssissss", $fullname, $regnum, $email, $phone, $faculty, $department, $level, $session, $hashed_password, $security_question, $security_answer);
-
+    
     if ($stmt->execute()) {
         echo json_encode([
             'success' => true,
@@ -306,7 +304,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'message' => 'Registration failed: ' . $stmt->error
         ]);
     }
-
+    
     $stmt->close();
     $conn->close();
 } else {
@@ -316,3 +314,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'message' => 'Invalid request method'
     ]);
 }
+?>

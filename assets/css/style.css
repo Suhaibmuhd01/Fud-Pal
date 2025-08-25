@@ -1,0 +1,227 @@
+/* Main Styles for FUD Pal */
+
+/* Custom fonts (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Custom variables */
+:root {
+    --primary: #10B981;
+    --primary-dark: #059669;
+    --secondary: #D97706;
+    --secondary-dark: #B45309;
+    --danger: #EF4444;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --info: #3B82F6;
+    --dark: #1F2937;
+    --light: #F9FAFB;
+}
+
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* CSS for the hamburger menu */
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: white;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+/* Menu slide animation */
+.menu-slide {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Card hover effect */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Button animations */
+.btn-pulse {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pulse::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn-pulse:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Custom animation for loading spinner */
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+.spinner {
+    animation: spinner 0.6s linear infinite;
+}
+
+/* Notification dot */
+.notification-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: #EF4444;
+    border-radius: 50%;
+}
+
+/* Animated background gradient */
+.animated-bg {
+    background: linear-gradient(-45deg, #10B981, #047857, #047857, #10B981);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Custom map marker styles */
+.custom-marker {
+    background: none;
+    border: none;
+}
+
+/* Dark mode overrides */
+.dark body {
+    background-color: #1F2937;
+    color: #F3F4F6;
+}
+
+.dark .bg-white {
+    background-color: #374151;
+}
+
+.dark .text-gray-800 {
+    color: #E5E7EB;
+}
+
+.dark .border-gray-200 {
+    border-color: #4B5563;
+}
+
+/* Utility animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Accessibility focus styles */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+}
