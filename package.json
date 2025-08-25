@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "tailwind": "^2.3.1"
+  },
+  "dependencies": {
+    "animation.css": "^0.1.0"
+  },
+  "name": "fud-pal",
+  "version": "1.0.0",
+  "description": "fud,navigation,past question, etc",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suhaibmuhd01/Fud-Pal.git"
+  },
+  "keywords": [
+    "navigation",
+    "past",
+    "question",
+    "navigation"
+  ],
+  "author": "suhaib",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Suhaibmuhd01/Fud-Pal/issues"
+  },
+  "homepage": "https://github.com/Suhaibmuhd01/Fud-Pal#readme"
+}
