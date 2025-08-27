@@ -2,7 +2,7 @@
 session_start();
 $fullname = $_SESSION['fullname'] ?? 'Student';
 $regnum = $_SESSION['regnum'] ?? '';
-$profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.jpg';
+$profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-regular.svg';
 
 // redirect logics
 if (!isset($_SESSION['user_id'])) {
@@ -16,8 +16,8 @@ if (!isset($_SESSION['user_id'])) {
 
 <head>
     <meta charset="UTF-8">
-    <meta nFAQsadddame="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs - FUD Pal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - FUD PAL</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -41,6 +41,11 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900  flex flex-col min-h-screen    flex-grow   mb-auto">
+    <!-- Mobile Hamburger Menu Button -->
+    <button id="hamburger-menu"
+        class="hamburger-btn fixed top-4 left-4 z-50 p-2 rounded-md bg-green-600 text-white shadow-lg md:hidden">
+        <i class="fas fa-bars text-2xl"></i>
+    </button>
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
 
@@ -50,7 +55,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="p-4 border-b border-green-500 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fas fa-users text-xl"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <h1 class="text-xl font-bold">FUD PAL</h1>
             </div>
             <button id="close-mobile-menu" class="text-white focus:outline-none">
                 <i class="fas fa-times text-xl"></i>
@@ -161,7 +166,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center justify-center space-x-2">
                 <i class="fas fa-users text-xl"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <h1 class="text-xl font-bold">FUD PAL</h1>
             </div>
         </div>
 
@@ -177,7 +182,7 @@ if (!isset($_SESSION['user_id'])) {
                     <?php
                     $fullname = $_SESSION['fullname'] ?? 'Student';
                     $regnum = $_SESSION['regnum'] ?? '';
-                    $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.jpg'; // Default image
+                    $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-regular.svg'; // Default image
                     ?>
                     <h3 class="font-semibold"><?php echo htmlspecialchars($fullname); ?></h3>
                     <p class="text-sm text-green-200"><?php echo htmlspecialchars($regnum); ?></p>
@@ -223,8 +228,7 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="faqs.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10">
+                    <a href="faqs.php" class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10">
                         <i class="fas fa-info-circle"></i>
                         <span>FAQs</span>
                     </a>
@@ -263,13 +267,13 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
 
-    <div class="container mx-auto px-4 py-8   main-content md:ml-64 min-h-screen transition-all  max-w-6xl mx-auto">
-        <h1 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Frequently Asked Questions</h1>
+    <div class="container mx-auto px-4 py-8 main-content md:ml-64 min-h-screen transition-all max-w-6xl">
+        <h1 class="text-3xl text-center font-bold mb-6 text-gray-800 dark:text-white">Frequently Asked Questions</h1>
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <!-- Sidebar categories -->
             <div class="lg:col-span-1">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md sticky top-24">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md fixed top-12">
                     <div class="bg-green-600 p-4 text-white">
                         <h2 class="text-lg font-semibold">Categories</h2>
                     </div>
@@ -336,12 +340,12 @@ if (!isset($_SESSION['user_id'])) {
                             </ul>
                         </nav>
 
-                        <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <div class="mt-2 pt-6 border-t border-gray-200 dark:border-gray-700">
                             <p class="text-gray-700 dark:text-gray-300 text-sm">
                                 Can't find what you're looking for?
                             </p>
                             <a href="#contact-support"
-                                class="inline-block mt-2 text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium">
+                                class="inline-block mt-1 text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium">
                                 <i class="fas fa-headset mr-1"></i> Contact Support
                             </a>
                         </div>
@@ -350,8 +354,8 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <!-- Main FAQ content -->
-            <div class="lg:col-span-3 animate_animated animate_fadeInUp">
-                <!-- General Information -->
+            <div class="lg:col-span-3 animate_animated animate_fadeInUp max-w-3xl mr-auto">
+                <!-- General Information section -->
                 <section id="general" class="mb-10 scroll-mt-24 ">
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                         <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center">
@@ -396,7 +400,10 @@ if (!isset($_SESSION['user_id'])) {
                                         <li>Faculty of Computing</li>
                                         <li>Faculty of Law</li>
                                         <li>Faculty of Management Sciences</li>
-                                        <li>Faculty of Sciences</li>
+                                        <li>Faculty of Physical Sciences</li>
+                                        <li>Faculty of Life Sciences</li>
+                                        <li>Faculty of Basic Clinical Science</li>
+                                        <li>Faculty of Basic Medical Science</li>
                                         <li>Faculty of Clinical Science</li>
                                         <li>Faculty of Physical Science</li>
                                     </ul>
@@ -931,15 +938,42 @@ if (!isset($_SESSION['user_id'])) {
         <footer class="py-4 mt-8 animate__animated animate__fadeInUp rounded-lg">
             <div class="flex justify-center items-center">
                 <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm text-center">
-                    &copy; <span id="year"></span> FUD Pal. All rights reserved.
+                    &copy; <span id="year"></span> FUD PAL. All rights reserved.
                 </p>
             </div>
         </footer>
         <script>
-            $(document).ready(function() {
-                const currentYear = new Date().getFullYear();
-                $('#year').text(currentYear);
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
+
+            // Hamburger menu logic
+            $('#hamburger-menu').on('click', function() {
+                $('#mobile-menu').removeClass('-translate-x-full').addClass('translate-x-0');
+                $('#mobile-menu-overlay').removeClass('hidden');
             });
+            $('#close-mobile-menu, #mobile-menu-overlay').on('click', function() {
+                $('#mobile-menu').addClass('-translate-x-full').removeClass('translate-x-0');
+                $('#mobile-menu-overlay').addClass('hidden');
+            });
+
+            // FAQ accordion logic
+            $('.faq-toggle').on('click', function() {
+                var $content = $(this).next('.faq-content');
+                var $icon = $(this).find('i.fas');
+                if ($content.hasClass('hidden')) {
+                    // Hide all other contents
+                    $('.faq-content').addClass('hidden');
+                    $('.faq-toggle i.fas').removeClass('fa-rotate-180');
+                    // Show this one
+                    $content.removeClass('hidden');
+                    $icon.addClass('fa-rotate-180');
+                } else {
+                    $content.addClass('hidden');
+                    $icon.removeClass('fa-rotate-180');
+                }
+            });
+        });
         </script>
     </div>
 

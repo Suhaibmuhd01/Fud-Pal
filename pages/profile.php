@@ -1,43 +1,17 @@
 <?php
-
-
+session_start();
 include '../includes/config.php';
-// session_start();
-
-$regnum = $_GET['regnum'] ?? ($_SESSION['regnum'] ?? '');
-if (!$regnum) {
-    header("Content-Type: image/png");
-    readfile("../assets/img/default-user.png");
-    exit;
-}
-
-$stmt = $conn->prepare("SELECT profile_picture, profile_picture_type FROM users WHERE regnum=?");
-$stmt->bind_param("s", $regnum);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($blob, $type);
-if ($stmt->num_rows > 0 && $stmt->fetch() && $blob) {
-    header("Content-Type: " . ($type ?: "image/png"));
-    echo $blob;
-} else {
-    header("Content-Type: image/png");
-    readfile("../assets/img/default-user.png");
-}
-$stmt->close();
-
 
 class User
 {
     private $conn;
     public $regnum, $fullname, $faculty, $department;
-
     public function __construct($conn, $regnum)
     {
         $this->conn = $conn;
         $this->regnum = $regnum;
         $this->load();
     }
-
     public function load()
     {
         $stmt = $this->conn->prepare("SELECT fullname, faculty, department FROM users WHERE regnum = ?");
@@ -60,7 +34,7 @@ $user = new User($conn, $regnum);
 <html lang="en">
 
 <head>
-    <title>Profile - FUD Pal</title>
+    <title>Profile - FUD PAL</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -113,7 +87,7 @@ $user = new User($conn, $regnum);
     </div>
 
     <!-- Popup -->
-    <div id="popup" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div id="popup" class="fixed inset-0 z-50 items-center justify-center hidden">
         <div
             class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col items-center relative animate__animated animate__bounceIn">
             <button id="close-popup"

@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Map - FUD Pal</title>
+    <title>Campus Map - FUD PAL</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -15,89 +15,89 @@ session_start();
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#10B981',
-                    secondary: '#D97706',
-                    danger: '#EF4444',
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#D97706',
+                        danger: '#EF4444',
+                    }
                 }
             }
         }
-    }
-    // Dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        if (event.matches) {
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
-    });
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
     </script>
     <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
 
-    .sidebar {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    @media (max-width: 768px) {
         .sidebar {
-            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
         }
 
-        .sidebar.open {
-            transform: translateX(0);
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
         }
-    }
 
-    .place-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
+        .place-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-    .place-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
 
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background: #10B981;
-        border-radius: 4px;
-    }
+        ::-webkit-scrollbar-thumb {
+            background: #10B981;
+            border-radius: 4px;
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #047857;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857;
+        }
 
-    .dark ::-webkit-scrollbar-track {
-        background: #374151;
-    }
+        .dark ::-webkit-scrollbar-track {
+            background: #374151;
+        }
 
-    .notification-dot {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 8px;
-        height: 8px;
-        background-color: #EF4444;
-        border-radius: 50%;
-    }
+        .notification-dot {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 8px;
+            height: 8px;
+            background-color: #EF4444;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -112,7 +112,7 @@ session_start();
             </button>
             <div class="flex items-center space-x-2">
                 <i class="fas fa-users"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <h1 class="text-xl font-bold">FUD PAL</h1>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="notifications.php" class="relative">
@@ -135,13 +135,13 @@ session_start();
             <div class="md:flex hidden items-center justify-between p-4 border-b border-green-500">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-users text-2xl"></i>
-                    <h2 class="text-xl font-bold">FUD Pal</h2>
+                    <h2 class="text-xl font-bold">FUD PAL</h2>
                 </div>
             </div>
             <div class="flex md:hidden items-center justify-between p-4 border-b border-green-500">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-users text-2xl"></i>
-                    <h2 class="text-xl font-bold">FUD Pal</h2>
+                    <h2 class="text-xl font-bold">FUD PAL</h2>
                 </div>
                 <button id="close-sidebar-mobile" class="text-2xl focus:outline-none">
                     <i class="fas fa-times"></i>
@@ -149,17 +149,15 @@ session_start();
             </div>
             <div class="p-4 border-b border-green-500">
                 <div class="flex items-center space-x-3">
-                    <div
-                        class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-green-600 text-xl">
-                        <i class="fas fa-user"></i>
+                    <div class="relative">
+                        <img src="<?php echo isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : '../assets/images/user-solid.svg'; ?>"
+                            alt="Profile"
+                            class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-lg transition duration-300 hover:scale-105">
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
                     </div>
-                    <div>
-                        <?php
-                        $fullname = $_SESSION['fullname'] ?? 'Student';
-                        $regnum = $_SESSION['regnum'] ?? '';
-                        ?>
-                        <h3 class="font-semibold"><?php echo htmlspecialchars($fullname); ?></h3>
-                        <p class="text-sm text-green-200"><?php echo htmlspecialchars($regnum); ?></p>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-base text-white"> <?php echo htmlspecialchars($_SESSION['fullname'] ?? 'Student'); ?> </span>
+                        <span class="text-xs text-green-200"> <?php echo htmlspecialchars($_SESSION['regnum'] ?? ''); ?> </span>
                     </div>
                 </div>
             </div>
@@ -168,7 +166,7 @@ session_start();
                 <ul class="space-y-1">
                     <li><a href="../dashboard.php"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors"><i
-                                class="fas fa-tachometer-alt w-6"></i><span>Dashboard</span></a></li>
+                                class="fas fa-home"></i><span>Dashboard</span></a></li>
                     <li><a href="map2.php" class="flex items-center space-x-3 px-4 py-3 bg-green-700 text-white"><i
                                 class="fas fa-map-marker-alt w-6"></i><span>Campus Map</span></a></li>
                     <li><a href="past_questions.php"
@@ -177,6 +175,9 @@ session_start();
                     <li><a href="reg_guide.php"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors"><i
                                 class="fas fa-book w-6"></i><span>Registration Guide</span></a></li>
+                    <li><a href="guidelines.php"
+                            class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors"><i
+                                class="fas fa-book w-6"></i><span>Student Guidelines</span></a></li>
                     <li><a href="faqs.php"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors"><i
                                 class="fas fa-info-circle w-6"></i><span>FAQs</span></a></li>
@@ -191,9 +192,9 @@ session_start();
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors"><i
                                 class="fas fa-user w-6"></i><span>Profile</span></a></li>
                 </ul>
-                <div class="mt-8 px-4">
+                <div class="mt-4 px-4">
                     <a href="../logout.php"
-                        class="flex items-center space-x-3 px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                        class="flex items-center space-x-3  text-white rounded-lg hover:bg-red-700 transition-colors">
                         <i class="fas fa-sign-out-alt w-6"></i>
                         <span>Logout</span>
                     </a>
@@ -274,6 +275,15 @@ session_start();
                                 </div>
                             </div>
                             <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Agriculture</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Agricultural Science,
+                                    Animal Science, Fishery, Agricultural Extension, Crop Science.</p>
+                                <div class="mt-2 flex justify-between items-center">
+                                    <span
+                                        class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
+                                </div>
+                            </div>
+                            <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
                                 <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Science</h3>
                                 <p class="text-sm text-gray-600 dark:text-gray-400">Departments Mathematics, Physics
                                     Zoology,Botany, Chemistry, EMT,</p>
@@ -282,21 +292,74 @@ session_start();
                                         class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
                                 </div>
                             </div>
+
                             <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
-                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Arts and Social
-                                    Science</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Criminology,
-                                    Political science,
-                                    Linguistics, Economics and English.</p>
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Life Science
+                                </h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Biochemistry, Food
+                                    science and Technology, Microbiology and Biotechnology, Plant Biology, Biological
+                                    Science, Animal & Environmetal Biology</p>
+                                <div class="mt-2 flex justify-between items-center">
+                                    <span
+                                        class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
+                                </div>
+                            </div>
+
+                            <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Physical Science
+                                </h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Chemistry,
+                                    Environmetal Science, Mathematics, Industrial Mathematics, Physics</p>
+                                <div class="mt-2 flex justify-between items-center">
+                                    <span
+                                        class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
+                                </div>
+                            </div>
+
+                            <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Education
+                                </h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of </p>
                                 <div class="mt-2 flex justify-between items-center">
                                     <span
                                         class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
                                 </div>
                             </div>
                             <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
-                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Clinical Science</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Nursing, Medicine,
-                                    Anatomy, Physiology and Public Health.</p>
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Arts and Social
+                                    Science</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Sociology,
+                                    Political science,
+                                    English and Linguistics, Economics and Development studies .</p>
+                                <div class="mt-2 flex justify-between items-center">
+                                    <span
+                                        class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
+                                </div>
+                            </div>
+                            <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Basic medical Science
+                                </h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Nursing, Anatomy,
+                                    Physiology, Biochemistry, Public and Environmtal Health.</p>
+                                <div class="mt-2 flex justify-between items-center">
+                                    <span
+                                        class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
+                                </div>
+                            </div>
+                            <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty of Basic Clinical
+                                    Science</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of Haematology, clinical
+                                    pharmacology.</p>
+                                <div class="mt-2 flex justify-between items-center">
+                                    <span
+                                        class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
+                                </div>
+                            </div>
+                            <div class="place-card p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                                <h3 class="font-semibold text-gray-800 dark:text-white">Faculty Clinical Science</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Departments of community
+                                    medicine,internal medicine, surgery, Gynaecology .</p>
                                 <div class="mt-2 flex justify-between items-center">
                                     <span
                                         class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded">Academic</span>
@@ -425,79 +488,79 @@ session_start();
             </div>
             <!-- Footer -->
             <footer class="mt-8 text-center text-gray-500 dark:text-gray-400 text-sm">
-                <p>&copy; <span id="year"></span> FUD Pal. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> FUD PAL. All rights reserved.</p>
             </footer>
         </main>
     </div>
     <!-- Overlay for mobile sidebar -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
     <script>
-    $(document).ready(function() {
-        const currentYear = new Date().getFullYear();
-        $('#year').text(currentYear);
+        $(document).ready(function() {
+            const currentYear = new Date().getFullYear();
+            $('#year').text(currentYear);
 
-        // Search/filter locations
-        $('#search-box').on('input', function() {
-            const searchTerm = $(this).val().toLowerCase();
-            let found = false;
-            $('#places-list .place-card').each(function() {
-                const name = $(this).find('h3').text().toLowerCase();
-                const desc = $(this).find('p').first().text().toLowerCase();
-                if (name.includes(searchTerm) || desc.includes(searchTerm)) {
-                    $(this).show();
-                    if (!found && searchTerm.length > 0) {
-                        $('html, body').animate({
-                            scrollTop: $(this).offset().top - 100
-                        }, 300);
-                        $(this).addClass('ring-2 ring-green-500');
-                        setTimeout(() => $(this).removeClass('ring-2 ring-green-500'), 1500);
-                        found = true;
+            // Search/filter locations
+            $('#search-box').on('input', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                let found = false;
+                $('#places-list .place-card').each(function() {
+                    const name = $(this).find('h3').text().toLowerCase();
+                    const desc = $(this).find('p').first().text().toLowerCase();
+                    if (name.includes(searchTerm) || desc.includes(searchTerm)) {
+                        $(this).show();
+                        if (!found && searchTerm.length > 0) {
+                            $('html, body').animate({
+                                scrollTop: $(this).offset().top - 100
+                            }, 300);
+                            $(this).addClass('ring-2 ring-green-500');
+                            setTimeout(() => $(this).removeClass('ring-2 ring-green-500'), 1500);
+                            found = true;
+                        }
+                    } else {
+                        $(this).hide();
                     }
-                } else {
-                    $(this).hide();
+                });
+            });
+
+            // Location filter buttons
+            $('.location-filter').click(function() {
+                $('.location-filter').removeClass(
+                    'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+                $('.location-filter').addClass(
+                    'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+                $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
+                $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
+                const category = $(this).text().trim();
+                $('#places-list .place-card').each(function() {
+                    const cat = $(this).find('span.text-xs').text().trim();
+                    if (category === "All Locations" || cat === category) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            $('#menu-btn').click(function() {
+                $(this).toggleClass('open');
+                $('#sidebar').toggleClass('open');
+                $('#sidebar-overlay').toggleClass('hidden');
+                $('body').toggleClass('overflow-hidden');
+            });
+            $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
+                $('#menu-btn').removeClass('open');
+                $('#sidebar').removeClass('open');
+                $('#sidebar-overlay').addClass('hidden');
+                $('body').removeClass('overflow-hidden');
+            });
+            $(window).resize(function() {
+                if (window.innerWidth >= 768) {
+                    $('#sidebar-overlay').addClass('hidden');
+                    $('body').removeClass('overflow-hidden');
                 }
             });
         });
-
-        // Location filter buttons
-        /*  $('.location-filter').click(function() {
-             $('.location-filter').removeClass(
-                 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
-             $('.location-filter').addClass(
-                 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-             $(this).removeClass('bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200');
-             $(this).addClass('bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200');
-             const category = $(this).text().trim();
-             $('#places-list .place-card').each(function() {
-                 const cat = $(this).find('span.text-xs').text().trim();
-                 if (category === "All Locations" || cat === category) {
-                     $(this).show();
-                 } else {
-                     $(this).hide();
-                 }
-             });
-         }); */
-
-        // Mobile menu toggle
-        $('#menu-btn').click(function() {
-            $(this).toggleClass('open');
-            $('#sidebar').toggleClass('open');
-            $('#sidebar-overlay').toggleClass('hidden');
-            $('body').toggleClass('overflow-hidden');
-        });
-        $('#close-sidebar-mobile, #sidebar-overlay').click(function() {
-            $('#menu-btn').removeClass('open');
-            $('#sidebar').removeClass('open');
-            $('#sidebar-overlay').addClass('hidden');
-            $('body').removeClass('overflow-hidden');
-        });
-        $(window).resize(function() {
-            if (window.innerWidth >= 768) {
-                $('#sidebar-overlay').addClass('hidden');
-                $('body').removeClass('overflow-hidden');
-            }
-        });
-    });
     </script>
 </body>
 

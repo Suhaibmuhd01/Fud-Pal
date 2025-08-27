@@ -29,29 +29,29 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Tailwind CSS replaces all custom card/page container styles -->
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900">
-    <!-- Sidebar (Desktop) -->
+    <!-- Sidebar Desktop -->
     <aside class="sidebar fixed top-0 left-0 h-full bg-green-600 text-white z-30 flex flex-col">
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center justify-center space-x-2">
                 <i class="fas fa-users text-xl"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <h1 class="text-xl font-bold">FUD PAL</h1>
             </div>
         </div>
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center space-x-3">
                 <div class="relative">
-                    <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture"
-                        class="w-10 h-10 rounded-full object-cover border-2 border-white">
+                    <img src="<?php echo isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : '../assets/images/user-solid.svg'; ?>"
+                        alt="Profile"
+                        class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-lg transition duration-300 hover:scale-105">
                     <span
                         class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
                 </div>
-                <div>
-                    <h3 class="font-semibold"><?php echo htmlspecialchars($fullname); ?></h3>
-                    <p class="text-sm text-green-200"><?php echo htmlspecialchars($regnum); ?></p>
+                <div class="flex flex-col">
+                    <span class="font-semibold text-base text-white"> <?php echo htmlspecialchars($fullname); ?> </span>
+                    <span class="text-xs text-green-200"> <?php echo htmlspecialchars($regnum); ?> </span>
                 </div>
             </div>
         </div>
@@ -85,15 +85,15 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors"><i
                             class="fas fa-bell"></i><span>Notifications</span><span
                             class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">3</span></a></li>
-                <li class="mt-6 border-t border-green-500 pt-4"><a href="../logout.php"
+                <li><a href="../logout.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors"><i
                             class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
             </ul>
         </nav>
     </aside>
 
-    <!-- Quick Navigation (Desktop) -->
-    <nav class="quick-nav hidden lg:flex flex-col fixed left-64 top-0 bg-gray-100 dark:bg-gray-800 z-20">
+    <!-- Quick Navigation  -->
+    <nav class="quick-nav hidden lg:flex flex-col fixed left-72 top-12 bg-gray-100 dark:bg-gray-800 z-20">
         <div class="flex flex-col p-4">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md">
                 <div class="bg-green-600 p-4 text-white rounded-t-lg">
@@ -161,7 +161,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     </nav>
 
     <!-- Main Content -->
-    <main class="mr-4 ml-auto max-w-4xl w-full pr-6 py-8">
+    <main class="mr-4 ml-auto max-w-3xl w-full pr-6 py-8">
         <h1 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Registration Guide</h1>
         <!-- Overview section -->
         <section id="overview" class="mb-10 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 card-hover">
@@ -201,8 +201,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
         </section>
 
         <!-- New Students section -->
-        <section id="new-students"
-            class="mb-10 bg-white dark:bg-gray-400 dark:bg-gray-800 rounded-lg shadow-md p-6 card-shadow">
+        <section id="new-students" class="mb-10 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 card-shadow">
             <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">New Students</h2>
             <p class="text-gray-700 dark:text-gray-300 mb-4">
                 Congratulations on your admission to Federal University Dutse!
@@ -211,19 +210,20 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
             </p>
             <div class="space-y-4">
                 <div class="border-l-4 border-green-500 pl-4">
-                    <h3 class="font-semibold text-lg text-gray-800 dark:text-green">Step 1: Accept Your Admission</h3>
+                    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-300">Step 1: Accept Your Admission
+                    </h3>
                     <p class="text-gray-700 dark:text-gray-300">
                         Visit the FUD admission portal with your application number and password to accept
                         your admission offer.
                     </p>
                 </div>
                 <div class="border-l-4 border-green-500 pl-4">
-                    <h3 class="font-semibold text-lg text-gray-800 dark:text-green">Step 2: Generate Invoice</h3>
+                    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-300">Step 2: Generate Invoice</h3>
                     <p class="text-gray-700 dark:text-gray-300">
                         After accepting your admission,
                         generate an invoice for the
                         the acceptance fee
-                        fee and other
+                        and other
                         applicable fees
                         .
                     </p>
@@ -262,14 +262,12 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                         your
                         period
                         .
-                        .
                     </p>
                 </div>
                 <div class="border-l-4 border-green-500 pl-4">
-                    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-300">Document Submission</h5>
+                    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-300">Step 5: Document Submission</h5>
                         <p class="text-gray-700 dark:text-gray-300">
                             payment
-                            "
                             Submit
                             your
                             original
@@ -285,18 +283,15 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
             </div>
             <div class="mt-6">
                 <div class="mt-20">
-                    a
-                    href="student.txt" href href="#" download
-                    class="inline-flex items-center"
-                    class="inline-flex items-center text-green-600 hover:text-green-700 dark:text-green-400
+                    <a href="student.txt" href href="#" download class="inline-flex items-center" class="inline-flex items-center text-green-600 hover:text-green-700 dark:text-green-400
                     dark:hover:text-green-300">
-                    <span>Download New Student
-                        registration
-                        Registration
-                        checklist
-                        student
-                    </span>
-                    <i class="fas fa-download ml-2"></i>
+                        <span>Download New Student
+                            registration
+                            Registration
+                            checklist
+                            student
+                        </span>
+                        <i class="fas fa-download ml-2"></i>
                     </a>
                 </div>
         </section>
@@ -460,12 +455,11 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
             <h3 class="font-semibold text-lg mt-6 mb-2 text-gray-800 dark:text-white">Course Registration Guidelines
             </h3>
             <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
-                <li>Students must register for both compulsory and elective courses.</li>
+                <li>Students must register all compulsory courses.</li>
                 <li>The maximum credit load per semester is 24 units.</li>
                 <li>Students on probation are limited to 15 credit units.</li>
-                <li>Courses are registered on a first-come, first-served basis.</li>
                 <li>Prerequisites must be completed before registering for advanced courses.</li>
-                <li>Course changes are only allowed within the first two weeks of the semester.</li>
+                <li>Course changes (Add/drop) are only allowed before the end of the semester.</li>
             </ul>
             <h3 class="font-semibold text-lg mt-6 mb-2 text-gray-800 dark:text-white">Registration Validation</h3>
             <ol class="list-decimal pl-6 space-y-2 text-gray-700 dark:text-gray-300">
@@ -481,7 +475,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
             <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Payment Procedures</h2>
             <p class="text-gray-700 dark:text-gray-300 mb-4">
                 The university has established multiple payment channels to make the fee payment process
-                convenient for all students.
+                convenient for all students through remita.
             </p>
             <h3 class="font-semibold text-lg mt-6 mb-2 text-gray-800 dark:text-white">Fee Structure</h3>
             <div class="overflow-x-auto">
@@ -860,15 +854,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
     </div>
 
     <!-- Footer -->
-    <footer
-        class="footer-content bg-white dark:bg-gray-800 shadow-md py-4 relative ml-[16rem] w-[calc(100%-16rem)] flex-shrink-0">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-3">
-                <p class="text-gray-600 dark:text-gray-400 text-sm md:text-center">
-                    &copy; <span id="footer-year"></span> FUD Pal. All rights reserved.
-                </p>
-            </div>
-        </div>
+    <footer class="mt-8 mb-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+        <p>&copy; <span id="year"></span> FUD PAL. All rights reserved.</p>
     </footer>
 
     <script>

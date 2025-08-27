@@ -23,7 +23,7 @@ header("Pragma: no-cache");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - FUD Pal</title>
+    <title>Dashboard - FUD PAL</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -49,147 +49,147 @@ header("Pragma: no-cache");
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#10B981',
-                        secondary: '#D97706',
-                        danger: '#EF4444',
-                        dark: {
-                            primary: '#065F46',
-                            secondary: '#B45309',
-                        }
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#10B981',
+                    secondary: '#D97706',
+                    danger: '#EF4444',
+                    dark: {
+                        primary: '#065F46',
+                        secondary: '#B45309',
                     }
                 }
             }
         }
+    }
 
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // Dark mode detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        if (event.matches) {
             document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
+    });
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+    body {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    @media (min-width: 768px) {
+        .main-content {
+            transition: margin-left 0.3s ease-in-out;
         }
 
-        /* Sidebar styles */
-        .sidebar {
-            transition: all 0.3s ease-in-out;
+        .main-content.expanded {
+            margin-left: 0;
         }
+    }
 
-        .sidebar.collapsed {
-            transform: translateX(-100%);
-        }
+    /* Mobile menu styles */
+    .mobile-menu {
+        transition: transform 0.3s ease-in-out;
+    }
 
-        @media (min-width: 768px) {
-            .main-content {
-                transition: margin-left 0.3s ease-in-out;
-            }
+    .notification-dot {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        width: 8px;
+        height: 8px;
+        background-color: #EF4444;
+        border-radius: 50%;
+    }
 
-            .main-content.expanded {
-                margin-left: 0;
-            }
-        }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
 
-        /* Mobile menu styles */
-        .mobile-menu {
-            transition: transform 0.3s ease-in-out;
-        }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
 
-        .notification-dot {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 8px;
-            height: 8px;
-            background-color: #EF4444;
-            border-radius: 50%;
-        }
+    ::-webkit-scrollbar-thumb {
+        background: #10B981;
+        border-radius: 3px;
+    }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #047857;
+    }
 
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
+    /* Card hover effect */
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        ::-webkit-scrollbar-thumb {
-            background: #10B981;
-            border-radius: 3px;
-        }
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #047857;
-        }
+    /* Hamburger menu */
+    .hamburger {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        transition: all 0.25s;
+        position: relative;
+    }
 
-        /* Card hover effect */
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .hamburger-top,
+    .hamburger-middle,
+    .hamburger-bottom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background: white;
+        transform: rotate(0);
+        transition: all 0.5s;
+    }
 
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+    .hamburger-middle {
+        transform: translateY(7px);
+    }
 
-        /* Hamburger menu */
-        .hamburger {
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
-            transition: all 0.25s;
-            position: relative;
-        }
+    .hamburger-bottom {
+        transform: translateY(14px);
+    }
 
-        .hamburger-top,
-        .hamburger-middle,
-        .hamburger-bottom {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 24px;
-            height: 2px;
-            background: white;
-            transform: rotate(0);
-            transition: all 0.5s;
-        }
+    .open .hamburger-top {
+        transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
 
-        .hamburger-middle {
-            transform: translateY(7px);
-        }
+    .open .hamburger-middle {
+        display: none;
+    }
 
-        .hamburger-bottom {
-            transform: translateY(14px);
-        }
-
-        .open .hamburger-top {
-            transform: rotate(45deg) translateY(6px) translateX(6px);
-        }
-
-        .open .hamburger-middle {
-            display: none;
-        }
-
-        .open .hamburger-bottom {
-            transform: rotate(-45deg) translateY(6px) translateX(-6px);
-        }
+    .open .hamburger-bottom {
+        transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    }
     </style>
 </head>
 
@@ -203,7 +203,7 @@ header("Pragma: no-cache");
         <div class="p-4 border-b border-green-500 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fas fa-users text-xl"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <h1 class="text-xl font-bold">FUD PAL</h1>
             </div>
             <button id="close-mobile-menu" class="text-white focus:outline-none">
                 <i class="fas fa-times text-xl"></i>
@@ -215,17 +215,18 @@ header("Pragma: no-cache");
                 <div class="relative">
 
 
-                    <img src="pages/profile_image.php?regnum=<?php echo urlencode($_SESSION['regnum']); ?>&t=<?php echo time(); ?>"
+                    <img src="assets/images/user-regular.svg?regnum=<?php echo urlencode($_SESSION['regnum']); ?>&t=<?php echo time(); ?>"
                         class="w-12 h-12 rounded-full object-cover" alt="Profile Picture">
                     <span
                         class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
                 </div>
                 <div>
-                    <!--  -->
+                    <span class="font-semibold text-base text-white block"> <?php echo htmlspecialchars($fullname); ?>
+                    </span>
+                    <span class="text-xs text-green-200 block"> <?php echo htmlspecialchars($regnum); ?> </span>
                 </div>
             </div>
         </div>
-
         <nav class="p-4">
             <ul class="space-y-2">
                 <li>
@@ -250,8 +251,8 @@ header("Pragma: no-cache");
                     </a>
                 </li>
                 <li>
-                    <a href="pages/reg_guide.php class=" flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white
-                        hover:bg-opacity-10 transition-colors">
+                    <a href="pages/guidelines.php"
+                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-book"></i>
                         <span>Reg Guidelines</span>
                     </a>
@@ -302,35 +303,31 @@ header("Pragma: no-cache");
             </ul>
         </nav>
     </div>
+    <!-- mobile sidebar end -->
 
     <!-- Desktop Sidebar -->
     <div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-green-600 text-white z-30 hidden md:block">
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center justify-center space-x-2">
                 <i class="fas fa-users text-xl"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <span class="text-xl font-bold">FUD PAL</span>
             </div>
         </div>
-
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center space-x-3">
                 <div class="relative">
-
+                    <img src="<?php echo isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : 'assets/images/user-solid.svg'; ?>"
+                        alt="Profile"
+                        class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-lg transition duration-300 hover:scale-105">
+                    <span
+                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
                 </div>
-                <div>
-                    <?php
-                    $fullname = $_SESSION['fullname'] ?? 'Student';
-                    $regnum = $_SESSION['regnum'] ?? '';
-                    ?>
-                    <h3 class="font-semibold">
-                        <img src="assets/images/user-solid.svg" alt="Profile"
-                            class="w-12 h-12 rounded-full border-4 border-white mt-4 md:mt-0">
-                    </h3>
-                    <p class="text-sm text-green-200"><?php echo htmlspecialchars($regnum); ?></p>
+                <div class="flex flex-col">
+                    <span class="font-semibold text-base text-white"> <?php echo htmlspecialchars($fullname); ?> </span>
+                    <span class="text-xs text-green-200"> <?php echo htmlspecialchars($regnum); ?> </span>
                 </div>
             </div>
         </div>
-
         <nav class="p-4">
             <ul class="space-y-2">
                 <li>
@@ -382,13 +379,7 @@ header("Pragma: no-cache");
                         <span>Community Forum</span>
                     </a>
                 </li>
-                <li>
-                    <a href="pages/profile/"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                        <i class="fas fa-user"></i>
-                        <span>My Profile</span>
-                    </a>
-                </li>
+
                 <li>
                     <a href="pages/notifications.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
@@ -407,7 +398,7 @@ header("Pragma: no-cache");
             </ul>
         </nav>
     </div>
-
+    <!-- Desktop sidebar ends here -->
     <!-- Main Content -->
     <div id="main-content" class="main-content md:ml-64 min-h-screen">
         <!-- Top Navigation Bar -->
@@ -547,7 +538,7 @@ header("Pragma: no-cache");
                 <a href="pages/guidelines.php"
                     class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-start space-x-4 card-hover">
                     <div class="rounded-lg bg-purple-100 dark:bg-purple-900 p-3">
-                        <i class="fas fa-book text-xl text-purple-600 dark:text-purple-400"></i>
+                        <i class="fas fa-book text-xl text-red-600 dark:text-purple-400"></i>
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white">Guidelines</h4>
@@ -775,7 +766,7 @@ header("Pragma: no-cache");
     <footer class="bg-white dark:bg-gray-800 shadow-md py-4 mt-auto">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-600 dark:text-gray-400 text-sm">&copy; <span id="year"></span> FUD Pal. All rights
+                <p class="text-gray-600 dark:text-gray-400 text-sm">&copy; <span id="year"></span> FUD PAL. All rights
                     reserved.</p>
                 <div class="flex space-x-4 mt-3 md:mt-0">
                     <a href="https://facebook.com/fud-pal"

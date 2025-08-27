@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "tailwind": "^2.3.1"
+    "tailwindcss": "^3.0.0"
   },
   "dependencies": {
     "animation.css": "^0.1.0"
   },
   "name": "fud-pal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "fud,navigation,past question, etc",
   "main": "index.php",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Suhaibmuhd01/Fud-Pal.git"
+    "url": "https://github.com/Suhaibmuhd01/Fud-Pal.git"
   },
   "keywords": [
     "navigation",

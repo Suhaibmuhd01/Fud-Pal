@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUD Pal - Your Campus Companion</title>
+    <title>FUD PAL - Your Campus Companion</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -20,159 +20,159 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#10B981',
-                        secondary: '#D97706',
-                        danger: '#EF4444',
-                        dark: {
-                            primary: '#065F46',
-                            secondary: '#B45309',
-                        }
-                    },
-                    animation: {
-                        'bounce-slow': 'bounce 3s infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#10B981',
+                    secondary: '#D97706',
+                    danger: '#EF4444',
+                    dark: {
+                        primary: '#065F46',
+                        secondary: '#B45309',
                     }
+                },
+                animation: {
+                    'bounce-slow': 'bounce 3s infinite',
+                    'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                 }
             }
         }
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    }
+    // Dark mode detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        if (event.matches) {
             document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
+    });
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+    body {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
+
+    .menu-slide {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .notification-dot {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        width: 8px;
+        height: 8px;
+        background-color: #EF4444;
+        border-radius: 50%;
+    }
+
+    .spinner {
+        animation: spinner 0.6s linear infinite;
+    }
+
+    @keyframes spinner {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .hamburger {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        transition: all 0.25s;
+        position: relative;
+    }
+
+    .hamburger-top,
+    .hamburger-middle,
+    .hamburger-bottom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background: white;
+        transform: rotate(0);
+        transition: all 0.5s;
+    }
+
+    .hamburger-middle {
+        transform: translateY(7px);
+    }
+
+    .hamburger-bottom {
+        transform: translateY(14px);
+    }
+
+    .open .hamburger-top {
+        transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+
+    .open .hamburger-middle {
+        display: none;
+    }
+
+    .open .hamburger-bottom {
+        transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    }
+
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .dark body {
+        background-color: #1F2937;
+        color: #F3F4F6;
+    }
+
+    .dark .bg-white {
+        background-color: #374151;
+    }
+
+    .dark .text-gray-800 {
+        color: #E5E7EB;
+    }
+
+    .dark .border-gray-200 {
+        border-color: #4B5563;
+    }
+
+    /* Responsive fixes */
+    @media (max-width: 768px) {
+        .header-login-btns {
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
-        .menu-slide {
-            transition: transform 0.3s ease-in-out;
+        .header-login-btns a {
+            width: 40%;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .hero-img-container {
+            max-width: 90vw;
         }
 
-        .notification-dot {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 8px;
-            height: 8px;
-            background-color: #EF4444;
-            border-radius: 50%;
+        .hero-img-bg {
+            width: 100vw !important;
         }
-
-        .spinner {
-            animation: spinner 0.6s linear infinite;
-        }
-
-        @keyframes spinner {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .hamburger {
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
-            transition: all 0.25s;
-            position: relative;
-        }
-
-        .hamburger-top,
-        .hamburger-middle,
-        .hamburger-bottom {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 24px;
-            height: 2px;
-            background: white;
-            transform: rotate(0);
-            transition: all 0.5s;
-        }
-
-        .hamburger-middle {
-            transform: translateY(7px);
-        }
-
-        .hamburger-bottom {
-            transform: translateY(14px);
-        }
-
-        .open .hamburger-top {
-            transform: rotate(45deg) translateY(6px) translateX(6px);
-        }
-
-        .open .hamburger-middle {
-            display: none;
-        }
-
-        .open .hamburger-bottom {
-            transform: rotate(-45deg) translateY(6px) translateX(-6px);
-        }
-
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .dark body {
-            background-color: #1F2937;
-            color: #F3F4F6;
-        }
-
-        .dark .bg-white {
-            background-color: #374151;
-        }
-
-        .dark .text-gray-800 {
-            color: #E5E7EB;
-        }
-
-        .dark .border-gray-200 {
-            border-color: #4B5563;
-        }
-
-        /* Responsive fixes */
-        @media (max-width: 768px) {
-            .header-login-btns {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .header-login-btns a {
-                width: 40%;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-img-container {
-                max-width: 90vw;
-            }
-
-            .hero-img-bg {
-                width: 100vw !important;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -186,16 +186,17 @@
                 <div class="flex items-center">
                     <div class="mr-2 relative">
                         <img src="./assets/images/FudPal.png"
-                            class="h-20 w-20 rounded-full bg-white p-1 shadow object-contain" alt="FudPal Logo">
+                            class="h-20 w-20 rounded-full bg-white border-2 border-green-600 p-1 shadow object-contain"
+                            alt="FudPal Logo">
                         <!-- <i class="fas fa-users text-xl"></i> -->
                     </div>
                     <h1 class="text-2xl font-bold">FudPal</h1>
                 </div>
             </div>
-            <div class="flex items-center space-x-4 header-login-btns">
+            <!-- <div class="flex items-center space-x-4 header-login-btns">
                 <a href="login.php"
-                    class="bg-white text-green-600 hover:bg-green-100 py-1 px-4 rounded-full font-medium transition whitespace-nowrap">Login</a>
-            </div>
+                    class="bg-green-50 text-green-700 hover:bg-green-100 hover:text-green-900 py-2 px-6 md:py-1 md:px-4 rounded-full font-semibold transition w-full md:w-auto text-base md:text-sm shadow-sm border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-400 whitespace-nowrap">Login</a>
+            </div> -->
         </div>
     </header>
 
@@ -220,10 +221,10 @@
             </div>
             <!-- Decorative white circle background behind image -->
             <div class="absolute right-0 bottom-0 z-10 flex items-end" style="margin-right: 0; height: 100%;">
-                <div class="bg-white !bg-white rounded-full flex items-end justify-end"
-                    style="height: 100%; width: 100%;">
+                <div class="bg-white rounded-full items-end justify-end w-full h-full md:h-[400px] md:w-[400px] absolute md:static right-0 bottom-0 md:mr-0 mr-[-40px] mb-[-40px] sm:mb-[-60px] z-0 hidden sm:flex"
+                    style="max-width: 100vw; max-height: 60vw;">
                     <img src="assets/images/gencraft_image.png" alt="Students on campus"
-                        class="object-contain object-bottom h-[200px] sm:h-[240px] md:h-[320px] lg:h-[380px] xl:h-[420px] w-auto max-w-[65vw] md:max-w-[48vw]" />
+                        class="object-contain object-bottom h-[120px] sm:h-[180px] md:h-[320px] lg:h-[380px] xl:h-[420px] w-auto max-w-[80vw] md:max-w-[48vw]" />
                 </div>
             </div>
         </section>
@@ -290,7 +291,7 @@
                 </h2>
                 <div class="flex flex-col items-center gap-6">
                     <div
-                        class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 flex items-start space-x-4 transform transition w-[400] hover:scale-[1.01] w-[90%] max-w-3xl">
+                        class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 flex items-start space-x-4 transform transition hover:scale-[1.01] w-[90%] max-w-3xl">
                         <div class="h-10 w-10 bg-amber-600 rounded-full flex-shrink-0 flex items-center justify-center">
                             <i class="fas fa-info text-white"></i>
                         </div>
@@ -415,7 +416,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">Ready to Enhance Your Campus
                     Experience?</h2>
                 <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Join thousands of FUD students who are already using FUD Pal to navigate campus life with ease.
+                    Join thousands of FUD students who are already using FUD PAL to navigate campus life with ease.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center" data-aos="fade-up"
                     data-aos-delay="200">
@@ -435,7 +436,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-users mr-2"></i> FUD Pal
+                        <i class="fas fa-users mr-2"></i> FUD PAL
                     </h3>
                     <p class="text-gray-400 mb-4">
                         Your digital companion for navigating campus life at Federal University Dutse.
@@ -485,46 +486,46 @@
                 </div>
             </div>
             <div class="mt-12 pt-8 border-t border-gray-800 text-center">
-                <p class="text-gray-400">&copy; <span id="year"></span> FUD Pal. All rights reserved.</p>
+                <p class="text-gray-400">&copy; <span id="year"></span> FUD PAL. All rights reserved.</p>
             </div>
         </div>
     </footer>
     <script>
-        $(document).ready(function() {
-            // get current year
-            const currentYear = new Date().getFullYear();
-            $('#year').text(currentYear);
-            // Initialize AOS animation library
-            AOS.init();
-            // Initialize Owl Carousel
-            $('.daily-dose-carousel').owlCarousel({
-                loop: true,
-                margin: 20,
-                nav: true,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    640: {
-                        items: 1
-                    },
-                    768: {
-                        items: 2
-                    },
-                    1024: {
-                        items: 3
-                    }
+    $(document).ready(function() {
+        // get current year
+        const currentYear = new Date().getFullYear();
+        $('#year').text(currentYear);
+        // Initialize AOS animation library
+        AOS.init();
+        // Initialize Owl Carousel
+        $('.daily-dose-carousel').owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
                 },
-                navText: [
-                    '<i class="fas fa-chevron-left"></i>',
-                    '<i class="fas fa-chevron-right"></i>'
-                ]
-            });
+                640: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                }
+            },
+            navText: [
+                '<i class="fas fa-chevron-left"></i>',
+                '<i class="fas fa-chevron-right"></i>'
+            ]
         });
+    });
     </script>
 </body>
 
