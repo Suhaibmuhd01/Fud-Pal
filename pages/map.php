@@ -10,7 +10,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Map - FUD Pal</title>
+    <title>Campus Map - FUD PAL</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -197,7 +197,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
 
             <div class="flex items-center space-x-2">
                 <i class="fas fa-users"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <h1 class="text-xl font-bold">FUD PAL</h1>
             </div>
 
             <div class="flex items-center space-x-4">
@@ -222,7 +222,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
             <div class="md:flex hidden items-center justify-between p-4 border-b border-green-500">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-users text-2xl"></i>
-                    <h2 class="text-xl font-bold">FUD Pal</h2>
+                    <h2 class="text-xl font-bold">FUD PAL</h2>
                 </div>
                 <button id="close-sidebar" class="md:hidden text-2xl focus:outline-none">
                     <i class="fas fa-times"></i>
@@ -233,7 +233,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
             <div class="flex md:hidden items-center justify-between p-4 border-b border-green-500">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-users text-2xl"></i>
-                    <h2 class="text-xl font-bold">FUD Pal</h2>
+                    <h2 class="text-xl font-bold">FUD PAL</h2>
                 </div>
                 <button id="close-sidebar-mobile" class="text-2xl focus:outline-none">
                     <i class="fas fa-times"></i>
@@ -568,7 +568,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                 <div class="max-w-2xl mx-auto px-4">
                     <div class="flex flex-col md:flex-row justify-between items-center gap-3">
                         <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm text-center">
-                            &copy; <span id="year"></span> FUD Pal. All rights reserved.
+                            &copy; <span id="year"></span> FUD PAL. All rights reserved.
                         </p>
                         <div class="flex justify-center space-x-4 mt-2 md:mt-0 text-end">
                             <a href="facebook.com/fud-pal/"

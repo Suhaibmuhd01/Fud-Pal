@@ -12,7 +12,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Registration Guide - FUD Pal</title>
+    <title>Course Registration Guide - FUD PAL</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -170,7 +170,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
         <div class="flex items-center justify-between p-4 border-b border-green-500">
             <div class="flex items-center">
                 <i class="fas fa-users text-xl mr-2"></i>
-                <h2 class="font-bold text-lg">FUD Pal</h2>
+                <h2 class="font-bold text-lg">FUD PAL</h2>
             </div>
             <button id="close-mobile-menu" class="focus:outline-none">
                 <i class="fas fa-times text-xl"></i>
@@ -256,20 +256,20 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center justify-center space-x-2">
                 <i class="fas fa-users text-xl"></i>
-                <h1 class="text-xl font-bold">FUD Pal</h1>
+                <h1 class="text-xl font-bold">FUD PAL</h1>
             </div>
         </div>
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center space-x-3">
                 <div class="relative">
-                    <img src="assets/images/user-solid.svg " ... alt="Profile Picture"
-                        class="w-10 h-10 rounded-full object-cover border-2 border-white">
-                    <span
-                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
+                    <img src="<?php echo isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : '../assets/images/user-solid.svg'; ?>"
+                        alt="Profile"
+                        class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-lg transition duration-300 hover:scale-105">
+                    <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
                 </div>
-                <div>
-                    <h3 class="font-semibold"><?php echo htmlspecialchars($fullname); ?></h3>
-                    <p class="text-sm text-green-200"><?php echo htmlspecialchars($regnum); ?></p>
+                <div class="flex flex-col">
+                    <span class="font-semibold text-base text-white"> <?php echo htmlspecialchars($fullname); ?> </span>
+                    <span class="text-xs text-green-200"> <?php echo htmlspecialchars($regnum); ?> </span>
                 </div>
             </div>
         </div>
@@ -617,11 +617,12 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                             <h4 class="text-lg font-medium text-gray-800 dark:text-white mb-2">Get Approval</h4>
                             <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-4">
                                 <ol class="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                                    <li>Take your your printed copies(atleast 3) to your level coordinator to sign </li>
+                                    <li>Take your your printed copies(at least 3) to your level coordinator to sign
+                                    </li>
                                     <li>submit a copy with your data form to Academic Division</li>
                                     <li> submit to your level coordinator office</li>
                                     <li>Forward one copy to the faculty (Dean&apos;s office)</li>
-                                    <li>Keep atleast one copy for your personal records</li>
+                                    <li>Keep at least one copy for your personal records</li>
                                 </ol>
                             </div>
                             <div
@@ -632,7 +633,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                     </div>
                                     <div class="ml-3">
                                         <h5 class="font-medium">Completion</h5>
-                                        <p class="text-sm">Your registration is complete once your form has been sadev
+                                        <p class="text-sm">Your registration is complete once your form has been saved
                                             and printed, signed by your level coordinator(level coordinator). Always
                                             keep
                                             your copy safe as proof of registration.</p>
@@ -925,7 +926,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                             <li class="flex items-start">
                                 <i class="fas fa-headset mt-1 mr-3 text-green-600 dark:text-green-400"></i>
                                 <div>
-                                    <h4 class="font-medium text-gray-800 dark:text-white">Student Support Helpdesk</h4>
+                                    <h4 class="font-medium text-gray-800 dark:text-white">Student Support Help desk</h4>
                                     <p class="text-sm text-gray-600 dark:text-gray-400">Email: <a
                                             href="mailto:support@fud.edu.ng"
                                             class="text-green-600 dark:text-green-400 hover:underline">support@fud.edu.ng</a>
@@ -971,84 +972,77 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
         </div>
 
         <!-- Footer -->
-        <footer
-            class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 p-4 border-t border-gray-200 dark:border-gray-700">
-            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-center">&copy; <span id="year"></span> FUD Pal. All rights reserved.</p>
-                </div>
-            </div>
+        <footer class="mt-6 mb-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+            <p>&copy; <span id="year"></span> FUD PAL. All rights reserved.</p>
         </footer>
-    </div>
 
-    <script>
-        $(document).ready(function() {
-            const currentYear = new Date().getFullYear();
-            $('#year').text(currentYear);
-        })
-    </script>
-    <script>
-        $(document).ready(function() {
-            // Initialize AOS animation library
-            AOS.init();
+        <script>
+            $(document).ready(function() {
+                const currentYear = new Date().getFullYear();
+                $('#year').text(currentYear);
+            })
+        </script>
+        <script>
+            $(document).ready(function() {
+                AOS.init();
 
-            // Mobile menu toggle
-            $('#mobile-menu-button').click(function() {
-                $(this).toggleClass('open');
-                $('#mobile-sidebar').toggleClass('-translate-x-full');
-                $('#mobile-menu-overlay').toggleClass('hidden');
-                $('body').toggleClass('overflow-hidden');
-            });
+                // Mobile menu toggle
+                $('#mobile-menu-button').click(function() {
+                    $(this).toggleClass('open');
+                    $('#mobile-sidebar').toggleClass('-translate-x-full');
+                    $('#mobile-menu-overlay').toggleClass('hidden');
+                    $('body').toggleClass('overflow-hidden');
+                });
 
-            $('#close-mobile-menu').click(function() {
-                $('#mobile-menu-button').removeClass('open');
-                $('#mobile-sidebar').addClass('-translate-x-full');
-                $('#mobile-menu-overlay').addClass('hidden');
-                $('body').removeClass('overflow-hidden');
-            });
+                $('#close-mobile-menu').click(function() {
+                    $('#mobile-menu-button').removeClass('open');
+                    $('#mobile-sidebar').addClass('-translate-x-full');
+                    $('#mobile-menu-overlay').addClass('hidden');
+                    $('body').removeClass('overflow-hidden');
+                });
 
-            $('#mobile-menu-overlay').click(function() {
-                $('#mobile-menu-button').removeClass('open');
-                $('#mobile-sidebar').addClass('-translate-x-full');
-                $('#mobile-menu-overlay').addClass('hidden');
-                $('body').removeClass('overflow-hidden');
-            });
+                $('#mobile-menu-overlay').click(function() {
+                    $('#mobile-menu-button').removeClass('open');
+                    $('#mobile-sidebar').addClass('-translate-x-full');
+                    $('#mobile-menu-overlay').addClass('hidden');
+                    $('body').removeClass('overflow-hidden');
+                });
 
-            // FAQ accordion
-            $('.faq-btn').click(function() {
-                const target = $(this).data('target');
-                $(`#${target}`).slideToggle();
-                $(this).find('i').toggleClass('rotate-180');
-            });
+                // FAQ accordion
+                $('.faq-btn').click(function() {
+                    const target = $(this).data('target');
+                    $(`#${target}`).slideToggle();
+                    $(this).find('i').toggleClass('rotate-180');
+                });
 
-            // Faculty selection for department guidelines
-            $('#faculty-select').change(function() {
-                const faculty = $(this).val();
+                // Faculty selection for department guidelines
+                $('#faculty-select').change(function() {
+                    const faculty = $(this).val();
 
-                if (!faculty) {
-                    $('#department-guidelines').html(`
+                    if (!faculty) {
+                        $('#department-guidelines').html(`
                         <div class="text-center py-8 text-gray-600 dark:text-gray-400">
                             <i class="fas fa-hand-pointer text-4xl mb-4"></i>
                             <p>Select your faculty to view department-specific guidelines</p>
                         </div>
                     `);
-                    return;
-                }
+                        return;
+                    }
 
-                // Show loading state
-                $('#department-guidelines').html(`
+                    // Show loading state
+                    $('#department-guidelines').html(`
                     <div class="text-center py-8 text-gray-600 dark:text-gray-400">
                         <i class="fas fa-spinner spinner text-4xl mb-4"></i>
                         <p>Loading department guidelines...</p>
                     </div>
                 `);
 
-                // Simulate loading department data
-                setTimeout(function() {
-                    let departmentHTML = '';
+                    // Simulate loading department data
+                    setTimeout(function() {
+                        let departmentHTML = '';
 
-                    if (faculty === 'computing') {
-                        departmentHTML = `
+                        if (faculty === 'computing') {
+                            departmentHTML = `
                             <div class="bg-green-50 dark:bg-green-900 border-l-4 border-green-500 text-green-700 dark:text-green-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Computing Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Computing.</p>
@@ -1104,8 +1098,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                    } else if (faculty === 'sciences') {
-                        departmentHTML = `
+                        } else if (faculty === 'sciences') {
+                            departmentHTML = `
                             <div class="bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 text-blue-700 dark:text-blue-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Sciences Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Sciences.</p>
@@ -1149,8 +1143,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                    } else if (faculty === 'agriculture') {
-                        departmentHTML = `
+                        } else if (faculty === 'agriculture') {
+                            departmentHTML = `
                             <div class="bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-500 text-yellow-700 dark:text-yellow-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Agriculture Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Agriculture.</p>
@@ -1182,8 +1176,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                    } else if (faculty === 'management') {
-                        departmentHTML = `
+                        } else if (faculty === 'management') {
+                            departmentHTML = `
                             <div class="bg-purple-50 dark:bg-purple-900 border-l-4 border-purple-500 text-purple-700 dark:text-purple-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Management Sciences Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Management Sciences.</p>
@@ -1227,8 +1221,8 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                    } else if (faculty === 'arts') {
-                        departmentHTML = `
+                        } else if (faculty === 'arts') {
+                            departmentHTML = `
                             <div class="bg-red-50 dark:bg-red-900 border-l-4 border-red-500 text-red-700 dark:text-red-200 p-4 mb-6">
                                 <p class="font-medium">Faculty of Arts & Social Sciences Guidelines</p>
                                 <p class="text-sm">The following are specific guidelines for departments within the Faculty of Arts & Social Sciences.</p>
@@ -1272,46 +1266,46 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                                 </div>
                             </div>
                         `;
-                    } else {
-                        departmentHTML = `
+                        } else {
+                            departmentHTML = `
                             <div class="text-center py-8 text-gray-600 dark:text-gray-400">
                                 <i class="fas fa-exclamation-circle text-4xl mb-4"></i>
                                 <p>No specific guidelines available for the selected faculty. Please contact your department office for registration guidance.</p>
                             </div>
                         `;
+                        }
+
+                        $('#department-guidelines').html(departmentHTML);
+                    }, 1000);
+                });
+
+                // Submit question form
+                $('#submit-question').click(function() {
+                    const name = $('#question-name').val().trim();
+                    const email = $('#question-email').val().trim();
+                    const question = $('#question-text').val().trim();
+
+                    // Simple validation
+                    if (!name || !email || !question) {
+                        alert('Please fill in all fields');
+                        return;
                     }
 
-                    $('#department-guidelines').html(departmentHTML);
-                }, 1000);
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+
+                    // Show success message (would be replaced with AJAX call in production)
+                    alert('Your question has been submitted successfully! We will get back to you soon.');
+
+                    // Reset form
+                    $('#question-form')[0].reset();
+                });
             });
-
-            // Submit question form
-            $('#submit-question').click(function() {
-                const name = $('#question-name').val().trim();
-                const email = $('#question-email').val().trim();
-                const question = $('#question-text').val().trim();
-
-                // Simple validation
-                if (!name || !email || !question) {
-                    alert('Please fill in all fields');
-                    return;
-                }
-
-                // Email validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email address');
-                    return;
-                }
-
-                // Show success message (would be replaced with AJAX call in production)
-                alert('Your question has been submitted successfully! We will get back to you soon.');
-
-                // Reset form
-                $('#question-form')[0].reset();
-            });
-        });
-    </script>
+        </script>
 </body>
 
 </html>

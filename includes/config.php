@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Global site settings
-define('SITE_NAME', 'FUD Pal');
+define('SITE_NAME', 'FUD PAL');
 define('SITE_URL', 'http://localhost/fudpal');
 define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/fudpal/uploads/');
 define('UPLOAD_URL', SITE_URL . '/uploads/');
@@ -27,4 +27,3 @@ ini_set('display_errors', 1);
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-?>
