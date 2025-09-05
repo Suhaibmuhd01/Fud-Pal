@@ -29,23 +29,19 @@ function sanitizeInput($data) {
 
 // Function to check if user is logged in
 function isLoggedIn() {
-    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         return true;
     }
-    
     // Check for "Remember Me" cookie
     if (isset($_COOKIE['fudpal_remember'])) {
         $token = $_COOKIE['fudpal_remember'];
-        
         $conn = connectDB();
         $stmt = $conn->prepare("SELECT id, fullname, regnum, email, department, level FROM users WHERE remember_token = ?");
         $stmt->bind_param("s", $token);
         $stmt->execute();
         $result = $stmt->get_result();
-        
         if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
-            
             // Set session variables
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['fullname'] = $user['fullname'];
@@ -53,18 +49,13 @@ function isLoggedIn() {
             $_SESSION['email'] = $user['email'];
             $_SESSION['department'] = $user['department'];
             $_SESSION['level'] = $user['level'];
-            $_SESSION['logged_in'] = true;
-            
             $stmt->close();
             $conn->close();
-            
             return true;
         }
-        
         $stmt->close();
         $conn->close();
     }
-    
     return false;
 }
 

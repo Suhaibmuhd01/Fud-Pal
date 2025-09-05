@@ -20,28 +20,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#10B981',
-                    secondary: '#D97706',
-                    danger: '#EF4444',
-                    dark: {
-                        primary: '#065F46',
-                        secondary: '#B45309',
-                    }
-                },
-                animation: {
-                    'bounce-slow': 'bounce 3s infinite',
-                    'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                }
-            }
-        }
-    }
     // Dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+   /*  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
     }
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
@@ -50,7 +30,7 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
-    });
+    }); */
     </script>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -453,7 +433,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="map2.php" class="text-gray-400 hover:text-white transition">Campus Map</a></li>
+                        <li><a href="map.php" class="text-gray-400 hover:text-white transition">Campus Map</a></li>
                         <li><a href="past_questions.php" class="text-gray-400 hover:text-white transition">Past
                                 Questions</a></li>
                         <li><a href="guidelines.php" class="text-gray-400 hover:text-white transition">Student

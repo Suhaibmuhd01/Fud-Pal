@@ -215,7 +215,7 @@ header("Pragma: no-cache");
                 <div class="relative">
 
 
-                    <img src="assets/images/user-regular.svg?regnum=<?php echo urlencode($_SESSION['regnum']); ?>&t=<?php echo time(); ?>"
+                    <img src="./pages/profile_image.php?regnum=<?php echo urlencode($regnum); ?>&t=<?php echo time(); ?>"
                         class="w-12 h-12 rounded-full object-cover" alt="Profile Picture">
                     <span
                         class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
@@ -237,7 +237,7 @@ header("Pragma: no-cache");
                     </a>
                 </li>
                 <li>
-                    <a href="pages/map2.php"
+                    <a href="pages/map.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -261,7 +261,7 @@ header("Pragma: no-cache");
                     <a href="pages/guidelines.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-book"></i>
-                        <span>Student Guidelines</span>
+                        <span>Course Reg Guidelines</span>
                     </a>
                 </li>
                 <li>
@@ -272,7 +272,7 @@ header("Pragma: no-cache");
                     </a>
                 </li>
                 <li>
-                    <a href="pages/forum/"
+                    <a href="pages/forums/"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-comments"></i>
                         <span>Community Forum</span>
@@ -283,14 +283,6 @@ header("Pragma: no-cache");
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-user"></i>
                         <span>My Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="pages/notifications.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                        <i class="fas fa-bell"></i>
-                        <span>Notifications</span>
-                        <span class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">3</span>
                     </a>
                 </li>
                 <li class="mt-6 border-t border-green-500 pt-4">
@@ -316,7 +308,7 @@ header("Pragma: no-cache");
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center space-x-3">
                 <div class="relative">
-                    <img src="<?php echo isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : 'assets/images/user-solid.svg'; ?>"
+                    <img src="./pages/profile_image.php?regnum=<?php echo urlencode($regnum); ?>&t=<?php echo time(); ?>"
                         alt="Profile"
                         class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-lg transition duration-300 hover:scale-105">
                     <span
@@ -338,7 +330,7 @@ header("Pragma: no-cache");
                     </a>
                 </li>
                 <li>
-                    <a href="pages/map2.php"
+                    <a href="pages/map.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -355,14 +347,14 @@ header("Pragma: no-cache");
                     <a href="pages/guidelines.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-book"></i>
-                        <span>Student Guidelines</span>
+                        <span>Registration Guidelines</span>
                     </a>
                 </li>
                 <li>
                     <a href="pages/reg_guide.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-book"></i>
-                        <span>Reg Guidelines</span>
+                        <span>Course Reg Guidelines</span>
                     </a>
                 </li>
                 <li>
@@ -373,19 +365,10 @@ header("Pragma: no-cache");
                     </a>
                 </li>
                 <li>
-                    <a href="pages/forum/"
+                    <a href="pages/forums/"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-comments"></i>
                         <span>Community Forum</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="pages/notifications.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                        <i class="fas fa-bell"></i>
-                        <span>Notifications</span>
-                        <span class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">3</span>
                     </a>
                 </li>
                 <li class="mt-6 border-t border-green-500 pt-4">
@@ -492,7 +475,8 @@ header("Pragma: no-cache");
                         </h2>
                         <p class="opacity-90">Access everything you need for your campus life at FUD.</p>
                     </div>
-                    <img src="assets/images/user-solid.svg" alt="Profile"
+                    <img src="./pages/profile_image.php?regnum=<?php echo urlencode($regnum); ?>&t=<?php echo time(); ?>"
+                        alt="Profile"
                         class="w-20 h-20 rounded-full border-4 border-white mt-4 md:mt-0">
                 </div>
             </div>
@@ -501,7 +485,7 @@ header("Pragma: no-cache");
             <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Quick Access</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 <!-- Campus Map Card -->
-                <a href="pages/map2.php"
+                <a href="pages/map.php"
                     class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-start space-x-4 card-hover">
                     <div class="rounded-lg bg-green-100 dark:bg-green-900 p-3">
                         <i class="fas fa-map-marker-alt text-xl text-green-600 dark:text-green-400"></i>
@@ -509,7 +493,7 @@ header("Pragma: no-cache");
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white">Campus Map</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Find your way around campus</p>
-                    </div>
+                    </div>Recent
                 </a>
 
                 <!-- Past Questions Card -->
@@ -531,7 +515,7 @@ header("Pragma: no-cache");
                         <i class="fas fa-book text-xl text-purple-600 dark:text-purple-400"></i>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-gray-800 dark:text-white">Guidelines</h4>
+                        <h4 class="font-semibold text-gray-800 dark:text-white">Registration Guidelines</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400">View Central registration process</p>
                     </div>
                 </a>
@@ -541,13 +525,13 @@ header("Pragma: no-cache");
                         <i class="fas fa-book text-xl text-red-600 dark:text-purple-400"></i>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-gray-800 dark:text-white">Guidelines</h4>
+                        <h4 class="font-semibold text-gray-800 dark:text-white">Course Reg Guidelines</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400">View Course registration process</p>
                     </div>
                 </a>
 
                 <!-- Forum Card -->
-                <a href="pages/forum/"
+                <a href="pages/forums/"
                     class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-start space-x-4 card-hover">
                     <div class="rounded-lg bg-amber-100 dark:bg-amber-900 p-3">
                         <i class="fas fa-comments text-xl text-amber-600 dark:text-amber-400"></i>
@@ -565,7 +549,7 @@ header("Pragma: no-cache");
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md">
                     <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
                         <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Recent Announcements</h3>
-                        <a href="#" class="text-sm text-green-600 dark:text-green-400 hover:underline">View All</a>
+                        <a href="./pages/announcements.php"  class="text-sm text-green-600 dark:text-green-400 hover:underline">View All</a>
                     </div>
                     <div class="divide-y divide-gray-200 dark:divide-gray-700">
                         <div class="p-4">
@@ -655,8 +639,8 @@ header("Pragma: no-cache");
 
     <!-- Statistics and Student Activity -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <!-- Academic Calendar -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md col-span-1">
+    <!-- Academic Calendar -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 w-full max-w-full">
             <div class="p-4 border-b border-gray-200 dark:border-gray-700">
                 <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Academic Calendar</h3>
             </div>
@@ -666,29 +650,29 @@ header("Pragma: no-cache");
                         <div class="h-2 w-2 rounded-full bg-green-500 mr-2"></div>
                         <div class="flex-1">
                             <p class="text-sm font-medium text-gray-700 dark:text-gray-300">Current Semester</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">First Semester 2024/2025</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Second Semester 2024/2025</p>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <div class="h-2 w-2 rounded-full bg-yellow-500 mr-2"></div>
                         <div class="flex-1">
                             <p class="text-sm font-medium text-gray-700 dark:text-gray-300">Mid-Semester Break</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">Null</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">September 1 - september 8</p>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <div class="h-2 w-2 rounded-full bg-red-500 mr-2"></div>
                         <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">First semester Exams Begin
+                            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">Second semester Exams Begin
                             </p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">January 12, 2025</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">November 12, 2025</p>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <div class="h-2 w-2 rounded-full bg-blue-500 mr-2"></div>
                         <div class="flex-1">
                             <p class="text-sm font-medium text-gray-700 dark:text-gray-300">Semester Ends</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">June 06, 2024</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">November 30, 2024</p>
                         </div>
                     </div>
                 </div>
@@ -710,7 +694,7 @@ header("Pragma: no-cache");
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md mb-8">
         <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
             <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Recent Forum Discussions</h3>
-            <a href="pages/forum/" class="text-sm text-green-600 dark:text-green-400 hover:underline">View All</a>
+            <a href="pages/forums/" class="text-sm text-green-600 dark:text-green-400 hover:underline">View All</a>
         </div>
         <div class="divide-y divide-gray-200 dark:divide-gray-700">
             <div class="p-4 flex items-start space-x-3">
