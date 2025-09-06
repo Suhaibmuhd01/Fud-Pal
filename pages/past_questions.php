@@ -317,7 +317,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
             <div class="p-4 border-b border-green-500">
                 <div class="flex items-center space-x-3">
                     <div class="relative">
-                        <img src="<?php echo isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : '../assets/images/user-solid.svg'; ?>"
+                        <img src="profile_image.php?regnum=<?php echo urlencode($regnum); ?>&t=<?php echo time(); ?>"
                             alt="Profile"
                             class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-lg transition duration-300 hover:scale-105">
                         <span
@@ -343,7 +343,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                         </a>
                     </li>
                     <li>
-                        <a href="map2.php"
+                        <a href="map.php"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors">
                             <i class="fas fa-map-marker-alt w-6"></i>
                             <span>Campus Map</span>
@@ -364,10 +364,10 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                         </a>
                     </li>
                     <li>
-                        <a href="reg_guide.php"
+                        <a href="guidelines.php"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors">
                             <i class="fas fa-book w-6"></i>
-                            <span> Student Guidelines</span>
+                            <span> Course Reg Guidelines</span>
                         </a>
                     </li>
                     <li>
@@ -378,20 +378,12 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                         </a>
                     </li>
                     <li>
-                        <a href="/forums/"
+                        <a href="forums/"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors">
                             <i class="fas fa-comments w-6"></i>
                             <span>Forum</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="notifications.php"
-                            class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors">
-                            <i class="fas fa-bell w-6"></i>
-                            <span>Notifications</span>
-                            <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full">3</span>
-                        </a>
-                    </li>
+                    </li> 
                     <li>
                         <a href="/profile"
                             class="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 transition-colors">
@@ -443,9 +435,13 @@ $profile_picture = $_SESSION['profile_picture'] ?? 'https://i.imgur.com/8Km9tLL.
                             class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
                             <option value="">All Faculties</option>
                             <option value="computing">Faculty of Computing</option>
-                            <option value="sciences">Faculty of Sciences</option>
+                            <option value="physical-science">Faculty of Physical Sciences</option>
+                            <option value="life-science">Faculty of Life Sciences</option>
                             <option value="education">Faculty of Education</option>
+                            <option value="law">Faculty of Law</option>
                             <option value="clinical">Faculty of clinical Science</option>
+                            <option value="basic-medical">Faculty of Basic Clinical Science</option>
+                            <option value="basic-medical">Faculty of Basic Medical Science</option>
                             <option value="agriculture">Faculty of Agriculture</option>
                             <option value="management">Faculty of Management Sciences</option>
                             <option value="arts">Faculty of Arts & Social Sciences</option>

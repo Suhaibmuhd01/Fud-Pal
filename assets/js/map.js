@@ -1,18 +1,18 @@
+// Define campusLocations array only once
+const campusLocations = [
+    { id: 1, name: 'Senate Building', lat: 11.7014528, lng: 9.3749248, category: 'administrative', description: 'Main administrative offices, including Registry and Bursary.' },
+    { id: 2, name: 'University Library', lat: 11.7020000, lng: 9.3755000, category: 'academic', description: 'Central library with study areas and research resources.' },
+    { id: 3, name: 'Faculty of Computing', lat: 11.7030000, lng: 9.3760000, category: 'academic', description: 'Departments of Computer Science, Software Engineering, Cyber Security, and IT.' },
+    //  more campus locations
+];
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the map
-    const map = L.map('map').setView(campusCenter, 16);
-    
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
     
     // Create map markers object to store all markers
-    const markers = {};
+   // const markers = {};
     
     // Create marker clusters for organization
-    const markerCluster = L.layerGroup().addTo(map);
+    // Remove markerCluster logic if not using Leaflet clustering
+    // const markerCluster = L.layerGroup().addTo(map); // Uncomment if using Leaflet and map is defined
     
     // Custom marker icons by category
     const markerIcons = {
@@ -41,33 +41,72 @@ document.addEventListener('DOMContentLoaded', function() {
             iconAnchor: [12, 24],
         }),
     };
+        // Leaflet logic disabled: using Google Maps only
+        // document.addEventListener('DOMContentLoaded', function() {
+        // Leaflet logic disabled: using Google Maps only
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     // Initialize the map
+        //     // const map = L.map('map').setView(campusCenter, 16); // Disabled: No map container present
+        //     
+        //     // Add OpenStreetMap tiles
+        //     // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     //     maxZoom: 19,
+        //     //     attribution: '© OpenStreetMap contributors'
+        //     // }).addTo(map);
+        //     
+        //     // Create map markers object to store all markers
+        //     // const markers = {};
+        //     
+        //     // Create marker clusters for organization
+        //     // const markerCluster = L.layerGroup().addTo(map);
+        //     
+        //     // Custom marker icons by category
+        //     // const markerIcons = {
+        //     //     academic: L.divIcon({
+        //     //         html: '<i class="fas fa-university text-blue-600 text-2xl"></i>',
+        //     //         className: 'custom-marker',
+        //     //         iconSize: [24, 24],
+        //     //         iconAnchor: [12, 24],
+        //     //     }),
+        //     //     administrative: L.divIcon({
+        //     //         html: '<i class="fas fa-building text-purple-600 text-2xl"></i>',
+        //     //         className: 'custom-marker',
+        //     //         iconSize: [24, 24],
+        //     //         iconAnchor: [12, 24],
+        //     //     }),
+        //     //     hostel: L.divIcon({
+        //     //         html: '<i class="fas fa-home text-green-600 text-2xl"></i>',
+        //     //         className: 'custom-marker',
+        //     //         iconSize: [24, 24],
+        //     //         iconAnchor: [12, 24],
+        //     //     }),
+        //     //     facility: L.divIcon({
+        //     //         html: '<i class="fas fa-landmark text-amber-600 text-2xl"></i>',
+        //     //         className: 'custom-marker',
+        //     //         iconSize: [24, 24],
+        //     //         iconAnchor: [12, 24],
+        //     //     }),
+        //     // };
+        //     ...existing code...
+        // });
+        //     ...existing code...
+        // });
     
     // Add all campus locations to the map
     campusLocations.forEach(location => {
         // Create marker with custom icon based on category
-        const icon = markerIcons[location.category] || L.divIcon({
-            html: '<i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>',
-            className: 'custom-marker',
-            iconSize: [24, 24],
-            iconAnchor: [12, 24],
-        });
-        
-        const marker = L.marker([location.lat, location.lng], { icon }).addTo(markerCluster);
-        
-        // Add popup
-        marker.bindPopup(`
-            <strong>${location.name}</strong><br>
-            ${location.description}<br>
-            <button class="view-details bg-green-600 text-white px-2 py-1 rounded text-xs mt-2" data-id="${location.id}">View Details</button>
-        `);
-        
-        // Store marker reference
-        markers[location.id] = marker;
-        
-        // Add click event to marker
-        marker.on('click', function() {
-            showLocationDetails(location);
-        });
+        // If using Leaflet, ensure map and markerCluster are defined
+        // const icon = markerIcons[location.category] || L.divIcon({
+        //     html: '<i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>',
+        //     className: 'custom-marker',
+        //     iconSize: [24, 24],
+        //     iconAnchor: [12, 24],
+        // });
+        // const marker = L.marker([location.lat, location.lng], { icon }).addTo(map); // Use map, not markerCluster
+        // marker.bindPopup(`...`);
+        // markers[location.id] = marker;
+        // marker.on('click', function() { showLocationDetails(location); });
+        // For Google Maps, add marker logic here if needed
     });
     
     // Function to show location details

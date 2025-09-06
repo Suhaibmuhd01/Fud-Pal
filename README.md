@@ -62,7 +62,6 @@ fud-pal
 │   ├── 🐘 faqs.php
 │   ├── 🐘 guidelines.php
 │   ├── 🐘 map.php
-│   ├── 🐘 map2.php
 │   ├── 🐘 notifications.php
 │   ├── 🐘 past_questions.php
 │   ├── 🐘 profile.php

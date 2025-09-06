@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    AOS.init();
+    // AOS.init();
     const currentYear = new Date().getFullYear();
     $('#year').text(currentYear);
 
@@ -50,72 +50,75 @@ $(document).ready(function () {
     });
 
     // Resources Usage Chart
-    const ctx = document.getElementById('resourcesChart').getContext('2d');
-    const resourcesChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Library', 'Wi-Fi', 'Hostel', 'Cafeteria', 'Sports'],
-            datasets: [{
-                label: 'Usage (%)',
-                data: [85, 80, 64, 65, 50],
-                backgroundColor: [
-                    'rgba(16, 185, 129, 0.7)',
-                    'rgba(59, 130, 246, 0.7)',
-                    'rgba(251, 191, 36, 0.7)',
-                    'rgba(168, 85, 247, 0.7)',
-                    'rgba(239, 68, 68, 0.7)'
-                ],
-                borderRadius: 6,
-                borderSkipped: false
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                },
-                title: {
-                    display: false
-                }
+    const chartCanvas = document.getElementById('resourcesChart');
+    if (chartCanvas) {
+        const ctx = chartCanvas.getContext('2d');
+        const resourcesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Library', 'Wi-Fi', 'Hostel', 'Cafeteria', 'Sports'],
+                datasets: [{
+                    label: 'Usage (%)',
+                    data: [70, 80, 64, 65, 40],
+                    backgroundColor: [
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(251, 191, 36, 0.7)',
+                        'rgba(168, 85, 247, 0.7)',
+                        'rgba(239, 68, 68, 0.7)'
+                    ],
+                    borderRadius: 6,
+                    borderSkipped: false
+                }]
             },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    ticks: {
-                        color: "#6B7280"
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
                     },
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.1)'
+                    title: {
+                        display: false
                     }
                 },
-                x: {
-                    ticks: {
-                        color: "#6B7280"
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: "#6B7280"
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
                     },
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.1)'
+                    x: {
+                        ticks: {
+                            color: "#6B7280"
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
                     }
                 }
             }
+        });
+
+        // Handle dark mode for chart
+        function updateChartColors() {
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            resourcesChart.options.scales.y.grid.color = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            resourcesChart.options.scales.x.grid.color = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            resourcesChart.options.scales.y.ticks.color = isDarkMode ? 'rgba(255, 255, 255, 0.7)' : '#6B7280';
+            resourcesChart.options.scales.x.ticks.color = isDarkMode ? 'rgba(255, 255, 255, 0.7)' : '#6B7280';
+            resourcesChart.update();
         }
-    });
 
-    // Handle dark mode for chart
-    function updateChartColors() {
-        const isDarkMode = document.documentElement.classList.contains('dark');
-        resourcesChart.options.scales.y.grid.color = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
-        resourcesChart.options.scales.x.grid.color = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
-        resourcesChart.options.scales.y.ticks.color = isDarkMode ? 'rgba(255, 255, 255, 0.7)' : '#6B7280';
-        resourcesChart.options.scales.x.ticks.color = isDarkMode ? 'rgba(255, 255, 255, 0.7)' : '#6B7280';
-        resourcesChart.update();
+        // Initialize chart colors
+        updateChartColors();
+
+        // Update chart colors on dark mode change
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateChartColors);
     }
-
-    // Initialize chart colors
-    updateChartColors();
-
-    // Update chart colors on dark mode change
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateChartColors);
 });

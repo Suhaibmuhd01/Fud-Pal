@@ -1,5 +1,4 @@
 <?php
-// Start session
 session_start();
 
 // Database connection
@@ -64,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Verify password
         if (password_verify($password, $user['password'])) {
-            // Password is correct
             
             // Set session variables
             $_SESSION['user_id'] = $user['id'];

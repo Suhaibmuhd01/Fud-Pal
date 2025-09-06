@@ -9,12 +9,6 @@ function sanitize($data)
     return $data;
 }
 
-// Check if user is logged in
-function isLoggedIn()
-{
-    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
-}
-
 // Redirect to specified URL
 function redirect($url)
 {
@@ -22,25 +16,6 @@ function redirect($url)
     exit;
 }
 
-// Get unread notification count
-function getUnreadNotificationCount()
-{
-    global $conn;
-
-    if (!isLoggedIn()) {
-        return 0;
-    }
-
-    $userId = $_SESSION['user_id'];
-    $sql = "SELECT COUNT(*) as count FROM notifications WHERE user_id = ? AND is_read = 0";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-
-    return $row['count'];
-}
 
 // Generate page title
 function pageTitle($title = '')
@@ -120,49 +95,10 @@ function logActivity($userId, $action, $details = '')
     $stmt->execute();
 }
 
-// Add notification
-function addNotification($userId, $message, $link = null)
-{
-    global $conn;
+// Removed sections
 
-    $sql = "INSERT INTO notifications (user_id, message, link) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iss", $userId, $message, $link);
-    return $stmt->execute();
-}
+// Add notification
 
 // Get user notifications
-function getUserNotifications($limit = 5)
-{
-    global $conn;
-
-    if (!isLoggedIn()) {
-        return [];
-    }
-
-    $userId = $_SESSION['user_id'];
-    $sql = "SELECT * FROM notifications WHERE user_id = ? ORDER BY created_at DESC LIMIT ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $userId, $limit);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    $notifications = [];
-    while ($row = $result->fetch_assoc()) {
-        $notifications[] = $row;
-    }
-
-    return $notifications;
-}
 
 // Mark notification as read
-function markNotificationAsRead($notificationId)
-{
-    global $conn;
-
-    $sql = "UPDATE notifications SET is_read = 1 WHERE id = ? AND user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $userId = $_SESSION['user_id'];
-    $stmt->bind_param("ii", $notificationId, $userId);
-    return $stmt->execute();
-}

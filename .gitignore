@@ -1,4 +1,65 @@
-vs/
-.vscode
-node_modules
+# OS generated files
+.DS_Store
+Thumbs.db
 
+# Logs
+*.log
+error_log
+debug.log
+
+# Cache
+cache/
+*.cache
+
+# Composer dependencies
+/vendor/
+/composer.lock
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor settings
+.vscode/
+.idea/
+.qodo
+*.sublime-workspace
+*.sublime-project
+
+# PHPStorm
+/.phpstorm.meta.php/
+
+# PHPUnit
+.phpunit.result.cache
+.phpunit.cache/
+
+# Node
+node_modules/
+npm-debug.log*
+
+
+# Build files
+/dist/
+/build/
+/public/build/
+/public/storage
+
+# Uploaded files (keep them out of repo, store elsewhere)
+uploads/
+storage/
+*.sql
+*.sqlite
+
+# Backup & temp
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Coverage reports
+coverage/
+
+# OS-specific
+ehthumbs.db
+Icon?

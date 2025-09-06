@@ -94,7 +94,7 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="pages/map2.php"
+                    <a href="pages/map.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -118,7 +118,7 @@ if (!isset($_SESSION['user_id'])) {
                     <a href="pages/guidelines.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-book"></i>
-                        <span>Student Guidelines</span>
+                        <span>Course Reg Guidelines</span>
                     </a>
                 </li>
                 <li>
@@ -142,14 +142,6 @@ if (!isset($_SESSION['user_id'])) {
                         <span>My Profile</span>
                     </a>
                 </li>
-                <li>
-                    <a href="pages/notifications.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                        <i class="fas fa-bell"></i>
-                        <span>Notifications</span>
-                        <span class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">3</span>
-                    </a>
-                </li>
                 <li class="mt-6 border-t border-green-500 pt-4">
                     <a href="logout.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
@@ -170,26 +162,31 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
-        <div class="p-4 border-b border-green-500">
-            <div class="flex items-center space-x-3">
-                <div class="relative">
-                    <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Profile Picture"
-                        class="w-10 h-10 rounded-full object-cover border-2 border-white">
-                    <span
-                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
+       <div class="flex md:hidden items-center justify-between p-4 border-b border-green-500">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-users text-2xl"></i>
+                    <h2 class="text-xl font-bold">FUD PAL</h2>
                 </div>
-                <div>
-                    <?php
-                    $fullname = $_SESSION['fullname'] ?? 'Student';
-                    $regnum = $_SESSION['regnum'] ?? '';
-                    $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-regular.svg'; // Default image
-                    ?>
-                    <h3 class="font-semibold"><?php echo htmlspecialchars($fullname); ?></h3>
-                    <p class="text-sm text-green-200"><?php echo htmlspecialchars($regnum); ?></p>
+                <button id="close-sidebar-mobile" class="text-2xl focus:outline-none">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="p-4 border-b border-green-500">
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                            <img src="profile_image.php?regnum=<?php echo urlencode($regnum); ?>&t=<?php echo time(); ?>"
+                                alt="Profile" class="w-14 h-14 aspect-square rounded-full object-cover border-4 border-white shadow-lg">
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-base text-white"><?php echo htmlspecialchars($fullname); ?></span>
+                        <span class="text-xs text-green-200"><?php echo htmlspecialchars($regnum); ?></span>
+                    </div>
                 </div>
             </div>
-        </div>
-
+         
+<!-- navigation -->
         <nav class="p-4">
             <ul class="space-y-2">
                 <li>
@@ -200,7 +197,7 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="map2.php"
+                    <a href="map.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -214,17 +211,17 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="guidelines.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                        <i class="fas fa-book"></i>
-                        <span>Student Guidelines</span>
-                    </a>
-                </li>
-                <li>
                     <a href="reg_guide.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-book"></i>
                         <span>Reg Guidelines</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="guidelines.php"
+                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
+                        <i class="fas fa-book"></i>
+                        <span> Course Reg Guidelines</span>
                     </a>
                 </li>
                 <li>
@@ -234,7 +231,7 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="forum/"
+                    <a href="forums/"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-comments"></i>
                         <span>Community Forum</span>
@@ -245,14 +242,6 @@ if (!isset($_SESSION['user_id'])) {
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-user"></i>
                         <span>My Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                        <i class="fas fa-bell"></i>
-                        <span>Notifications</span>
-                        <span class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">3</span>
                     </a>
                 </li>
                 <li class="mt-6 border-t border-green-500 pt-4">

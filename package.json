@@ -3,7 +3,13 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "animation.css": "^0.1.0"
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.16",
+    "animation.css": "^0.1.0",
+    "aos": "^2.3.4",
+    "jquery": "^3.7.1"
   },
   "name": "fud-pal",
   "version": "1.1.0",

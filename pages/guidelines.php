@@ -22,34 +22,6 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#10B981',
-                        secondary: '#D97706',
-                        danger: '#EF4444',
-                    }
-                }
-            }
-        }
-
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
-    </script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -179,7 +151,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center space-x-3">
                 <div class="relative">
-                    <img src="pages/profile_image.php?regnum=<?php echo urlencode($_SESSION['regnum']); ?>" ...
+                    <img src="profile_image.php?regnum=<?php echo urlencode($_SESSION['regnum']); ?>" ...
                         alt="Profile Picture" class="w-10 h-10 rounded-full object-cover border-2 border-white">
                     <span
                         class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
@@ -199,7 +171,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                     </a>
                 </li>
                 <li>
-                    <a href="map2.php" class="flex items-center px-4 py-3 hover:bg-green-700 transition-colors">
+                    <a href="map.php" class="flex items-center px-4 py-3 hover:bg-green-700 transition-colors">
                         <i class="fas fa-map-marker-alt w-6"></i>
                         <span>Map</span>
                     </a>
@@ -220,7 +192,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                 <li>
                     <a href="guidelines.php" class="flex items-center px-4 py-3 bg-green-700">
                         <i class="fas fa-book w-6"></i>
-                        <span>Student Guidelines</span>
+                        <span>Course Reg Guidelines</span>
                     </a>
                 </li>
                 <li>
@@ -230,9 +202,9 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                     </a>
                 </li>
                 <li>
-                    <a href="forum/index.php" class="flex items-center px-4 py-3 hover:bg-green-700 transition-colors">
+                    <a href="forums/" class="flex items-center px-4 py-3 hover:bg-green-700 transition-colors">
                         <i class="fas fa-comments w-6"></i>
-                        <span>Forum</span>
+                        <span>Community Forum</span>
                     </a>
                 </li>
                 <li>
@@ -262,7 +234,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
         <div class="p-4 border-b border-green-500">
             <div class="flex items-center space-x-3">
                 <div class="relative">
-                    <img src="<?php echo isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : '../assets/images/user-solid.svg'; ?>"
+                    <img src="profile_image.php?regnum=<?php echo urlencode($regnum); ?>&t=<?php echo time(); ?>"
                         alt="Profile"
                         class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-lg transition duration-300 hover:scale-105">
                     <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
@@ -283,7 +255,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                     </a>
                 </li>
                 <li>
-                    <a href="map2.php"
+                    <a href="map.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Campus Map</span>
@@ -306,7 +278,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                     <a href="guidelines.php"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-green-700 text-white hover:bg-green-700 hover:text-white transition-colors">
                         <i class="fas fa-book"></i>
-                        <span>Student Guidelines</span>
+                        <span>Course Reg Guidelines</span>
                     </a>
                 </li>
                 <li>
@@ -317,7 +289,7 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                     </a>
                 </li>
                 <li>
-                    <a href="forum/"
+                    <a href="forums/"
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-comments"></i>
                         <span>Community Forum</span>
@@ -328,14 +300,6 @@ $profile_picture = $_SESSION['profile_picture'] ?? '../assets/images/user-solid.
                         class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
                         <i class="fas fa-user"></i>
                         <span>My Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.php"
-                        class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                        <i class="fas fa-bell"></i>
-                        <span>Notifications</span>
-                        <span class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">3</span>
                     </a>
                 </li>
                 <li class="mt-6 border-t border-green-500 pt-4">
